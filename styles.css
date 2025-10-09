@@ -42,11 +42,26 @@ a {
 .nav-link:hover {
 	color: var(--knm-primary);
 }
+/* sections linked via #hash won't hide under sticky navbar */
+[id] {
+	scroll-margin-top: 84px;
+} /* adjust if your navbar height changes */
+
 /* make the navbar logo bigger */
 .brand-mark {
 	height: 44px; /* was 34px */
 	width: auto; /* keep aspect ratio */
 	display: block; /* remove baseline gap */
+}
+
+/*sticky nav*/
+.topbar {
+	border-bottom: 1px solid #e7ebef;
+	background: #fff;
+	z-index: 1030; /* stay above content */
+}
+.nav-shadow {
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
 }
 
 /* even bigger on desktop */
@@ -107,6 +122,63 @@ a {
 .btn-gap > * + * {
 	margin-left: 12px;
 }
+/* Bigger, square, perfectly centered CTAs */
+.btn-gap {
+	display: flex;
+	align-items: center;
+	gap: 16px; /* replaces the margin-left hack */
+	flex-wrap: wrap; /* nice on smaller screens */
+}
+
+.btn-cta {
+	border-radius: 0 !important;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	line-height: 1; /* keeps text centered vertically */
+	min-width: 260px; /* makes them feel substantial */
+	height: 60px; /* ↑ height */
+	padding: 0 40px; /* ↑ horizontal padding */
+	font-size: 18px; /* ↑ text size */
+	font-weight: 700; /* bolder label */
+	letter-spacing: 0.6px;
+	text-transform: uppercase;
+}
+
+/* Variants keep the square look */
+.btn-primary-knm {
+	border-radius: 0 !important;
+	background: var(--knm-primary);
+	color: #fff;
+	border: 1px solid rgba(0, 0, 0, 0.08);
+}
+.btn-primary-knm:hover {
+	background: #1a1a1a;
+	color: #fff;
+}
+
+.btn-outline-knm {
+	border-radius: 0 !important;
+	border: 2px solid var(--knm-primary);
+	color: var(--knm-primary);
+	background: #fff;
+	font-weight: 700; /* match primary weight */
+}
+.btn-outline-knm:hover {
+	background: var(--knm-light);
+}
+
+/* Mobile/tablet sizing */
+@media (max-width: 991.98px) {
+	.btn-cta {
+		width: 100%;
+		max-width: 360px; /* keeps them tidy on small screens */
+		height: 56px;
+		font-size: 16px;
+		padding: 0 28px;
+	}
+}
 
 .hero-img {
 	width: 80%;
@@ -114,8 +186,29 @@ a {
 	border-radius: 6px;
 	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
 }
+/* ===== Mobile/tablet centering ===== */
+@media (max-width: 991.98px) {
+	/* center the hero text block */
+	.section-hero .col-lg-7 {
+		text-align: center;
+	}
 
-/* Services */
+	/* center the buttons row */
+	.btn-gap {
+		justify-content: center; /* puts both buttons in the middle */
+		width: 100%;
+	}
+
+	/* make image full-width and centered */
+	.hero-img {
+		display: block;
+		margin: 16px auto 0; /* centers horizontally */
+		width: 100%;
+		max-width: 420px; /* keeps it elegant on small screens */
+	}
+}
+
+/*MARK:  Services */
 .section-services {
 	background: var(--knm-primary);
 	color: #fff;
