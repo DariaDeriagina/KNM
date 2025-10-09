@@ -26,7 +26,7 @@ a {
 	font-family: Manrope, Inter, sans-serif;
 }
 
-/* Header */
+/*MARK: Header */
 .topbar {
 	border-bottom: 1px solid #e7ebef;
 	background: #fff;
@@ -42,13 +42,32 @@ a {
 .nav-link:hover {
 	color: var(--knm-primary);
 }
+/* make the navbar logo bigger */
+.brand-mark {
+	height: 44px; /* was 34px */
+	width: auto; /* keep aspect ratio */
+	display: block; /* remove baseline gap */
+}
 
-/* Hero */
+/* even bigger on desktop */
+@media (min-width: 992px) {
+	.brand-mark {
+		height: 52px;
+	}
+}
+
+/* optional: tighten navbar vertical padding so it stays neat */
+.navbar {
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+}
+
+/*MARK: Hero */
 .section-hero {
 	padding: 72px 0 56px;
 }
 .hero-title {
-	font: 700 clamp(32px, 5.4vw, 64px) / 1.05 Manrope, sans-serif;
+	font: 700 clamp(32px, 5.4vw, 80px) / 1.05 Manrope, sans-serif;
 	color: var(--knm-primary);
 	margin-bottom: 8px;
 }
@@ -56,15 +75,17 @@ a {
 	color: #4a5560;
 	margin-bottom: 22px;
 }
+/* square buttons + perfectly centered text */
 .btn-cta {
-	height: 52px;
-	padding: 0 30px;
-	border-radius: 6px;
-	text-transform: uppercase;
-	letter-spacing: 0.5px;
-	font-weight: 600;
+	border-radius: 0 !important; /* remove rounded corners */
+	display: inline-flex; /* keep flex centering */
+	align-items: center;
+	justify-content: center;
+	text-align: center; /* ensure text is centered */
 }
+
 .btn-primary-knm {
+	border-radius: 0;
 	background: var(--knm-primary);
 	color: #fff;
 	border: 1px solid rgba(0, 0, 0, 0.08);
@@ -74,6 +95,7 @@ a {
 	color: #fff;
 }
 .btn-outline-knm {
+	border-radius: 0;
 	border: 2px solid var(--knm-primary);
 	color: var(--knm-primary);
 	background: #fff;
@@ -87,7 +109,7 @@ a {
 }
 
 .hero-img {
-	width: 100%;
+	width: 80%;
 	height: auto;
 	border-radius: 6px;
 	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
