@@ -1,0 +1,180 @@
+/* ================================
+   KNM Finance — Global Styles
+   Fonts: Manrope + Inter
+   Palette: #3E4A56, #E8EBEE, #1A1A1A, #707981, #FFFFFF
+   ================================ */
+
+:root {
+	--knm-primary: #3e4a56;
+	--knm-light: #e8ebee;
+	--knm-text: #1a1a1a;
+	--knm-white: #ffffff;
+	--knm-muted: #707981;
+}
+
+/* Typography base */
+body {
+	font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+		"Helvetica Neue", Arial, sans-serif;
+	color: var(--knm-text);
+	background: #fff;
+}
+a {
+	text-decoration: none;
+}
+.manrope {
+	font-family: Manrope, Inter, sans-serif;
+}
+
+/* Header */
+.topbar {
+	border-bottom: 1px solid #e7ebef;
+	background: #fff;
+}
+.brand-mark {
+	height: 34px;
+}
+.nav-link {
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	color: #111;
+}
+.nav-link:hover {
+	color: var(--knm-primary);
+}
+
+/* Hero */
+.section-hero {
+	padding: 72px 0 56px;
+}
+.hero-title {
+	font: 700 clamp(32px, 5.4vw, 64px) / 1.05 Manrope, sans-serif;
+	color: var(--knm-primary);
+	margin-bottom: 8px;
+}
+.hero-sub {
+	color: #4a5560;
+	margin-bottom: 22px;
+}
+.btn-cta {
+	height: 52px;
+	padding: 0 30px;
+	border-radius: 6px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	font-weight: 600;
+}
+.btn-primary-knm {
+	background: var(--knm-primary);
+	color: #fff;
+	border: 1px solid rgba(0, 0, 0, 0.08);
+}
+.btn-primary-knm:hover {
+	background: #1a1a1a;
+	color: #fff;
+}
+.btn-outline-knm {
+	border: 2px solid var(--knm-primary);
+	color: var(--knm-primary);
+	background: #fff;
+	font-weight: 600;
+}
+.btn-outline-knm:hover {
+	background: var(--knm-light);
+}
+.btn-gap > * + * {
+	margin-left: 12px;
+}
+
+.hero-img {
+	width: 100%;
+	height: auto;
+	border-radius: 6px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Services */
+.section-services {
+	background: var(--knm-primary);
+	color: #fff;
+	padding: 54px 0 70px;
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.section-services .lead {
+	color: var(--knm-light);
+}
+.svc-divider {
+	height: 1px;
+	background: rgba(255, 255, 255, 0.25);
+	margin: 14px 0 26px;
+}
+
+.svc-card {
+	background: #fff;
+	color: #2b333a;
+	border: 0;
+	border-radius: 10px;
+	padding: 18px;
+	height: 100%;
+	box-shadow: 0 2px 0 rgba(0, 0, 0, 0.04);
+}
+.svc-title {
+	font: 600 16px/1.35 Manrope, sans-serif;
+	color: #111;
+	margin: 12px 0 6px;
+}
+.svc-text {
+	font-size: 14px;
+	color: #505a63;
+	margin-bottom: 10px;
+}
+
+.svc-image {
+	width: 170px;
+	height: 170px;
+	border-radius: 50%;
+	object-fit: cover;
+	display: block;
+	margin-inline: auto;
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+/* Minimal fade-in animation (IntersectionObserver toggles .show) */
+.fade-on-scroll {
+	opacity: 0;
+	transform: translateY(14px);
+	transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.fade-on-scroll.show {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* Utilities */
+.muted {
+	color: var(--knm-muted);
+}
+
+/* Responsive tweaks */
+@media (max-width: 991.98px) {
+	.section-hero {
+		padding: 48px 0;
+	}
+	.btn-gap {
+		display: flex;
+		gap: 12px;
+		flex-wrap: wrap;
+	}
+}
+
+/* Reduced motion: show instantly, no transforms */
+@media (prefers-reduced-motion: reduce) {
+	.fade-on-scroll {
+		opacity: 1 !important;
+		transform: none !important;
+		transition: none !important;
+	}
+	.btn-cta:hover {
+		transform: none;
+	}
+}
