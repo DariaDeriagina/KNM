@@ -253,3 +253,40 @@ window.addEventListener("scroll", animateCounters);
 		e.style.transitionDelay = `${(delay += 120)}ms`;
 	});
 })();
+// MARK: Footer Dynamic Year
+document.getElementById("year").textContent = new Date().getFullYear();
+/* ================================
+   MARK: CONTACT — Show bouncing dock hint once
+   ================================ */
+(function () {
+	const contact = document.querySelector("#contact");
+	const hint = document.querySelector(".dock-hint");
+	if (!contact || !hint) return;
+
+	// Only show once per session
+	const KEY = "knm_dock_hint_shown";
+	if (sessionStorage.getItem(KEY) === "1") return;
+
+	const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+	const io = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((e) => {
+				if (!e.isIntersecting) return;
+
+				// Reveal hint
+				hint.classList.add("is-visible");
+				// Auto-hide after a short time
+				const DURATION = reduce ? 1500 : 2600;
+				setTimeout(() => hint.classList.remove("is-visible"), DURATION);
+
+				// Remember for this session
+				sessionStorage.setItem(KEY, "1");
+				io.unobserve(contact);
+			});
+		},
+		{ threshold: 0.35 }
+	);
+
+	io.observe(contact);
+})();

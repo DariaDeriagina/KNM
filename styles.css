@@ -209,6 +209,26 @@ a {
 }
 
 /* ================================
+   MARK: Hero image — smaller on mobile
+   ================================ */
+@media (max-width: 768px) {
+	.hero-img {
+		max-width: 340px; /* was 420px */
+		width: 85%; /* keep it responsive */
+	}
+	.section-hero {
+		padding: 56px 0 44px; /* a bit tighter so it feels balanced */
+	}
+}
+
+@media (max-width: 576px) {
+	.hero-img {
+		max-width: 300px; /* even smaller on phones */
+		width: 82%;
+	}
+}
+
+/* ================================
    MARK: SERVICES SECTION (KNM Finance)
    Equal card size + centered compact lists
    ================================ */
@@ -727,10 +747,150 @@ a {
 		line-height: 1.55;
 	}
 }
+/* ================================
+   MARK: TESTIMONIALS (KNM — full rewrite)
+   ================================ */
+
+.section-testimonials {
+	background: var(--knm-primary); /* same dark tone as Services */
+	color: #fff;
+	padding: 80px 0 96px; /* generous breathing room */
+	border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.section-testimonials h2 {
+	margin: 0 0 18px;
+}
+
+.testi-grid {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 24px; /* space between cards */
+}
+
+/* ===== Testimonial Card ===== */
+.quote-card {
+	background: #ffffff;
+	color: #2b333a;
+	border-radius: 14px;
+	padding: 24px 22px;
+	border: 1px solid rgba(0, 0, 0, 0.06);
+	box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	position: relative;
+	isolation: isolate;
+	transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.quote-card:hover {
+	transform: translateY(-4px);
+	box-shadow: 0 18px 32px rgba(0, 0, 0, 0.16);
+}
+
+/* Decorative quote (simple + cross-browser) */
+.quote-card blockquote {
+	margin: 0;
+	font-size: 16.2px;
+	line-height: 1.55;
+	color: #1a1a1a;
+	position: relative;
+	padding-left: 36px; /* room for the opening quote */
+}
+
+.quote-card blockquote::before {
+	content: "“";
+	position: absolute;
+	left: 0;
+	top: -6px;
+	font-family: Georgia, serif;
+	font-size: 52px;
+	line-height: 1;
+	color: var(--knm-primary);
+	opacity: 0.3;
+}
+
+/* Author / attribution */
+.quote-card figcaption {
+	font-size: 13.5px;
+	color: #5b6570;
+	margin-top: 2px;
+}
+
+/* Optional subtle divider above figcaption */
+.quote-card figcaption::before {
+	content: "";
+	display: block;
+	height: 1px;
+	background: rgba(0, 0, 0, 0.06);
+	margin: 6px 0 10px;
+}
+
+/* ===== Fade-on-scroll integration (reuse your JS) ===== */
+.section-testimonials .fade-on-scroll {
+	opacity: 0;
+	transform: translateY(14px);
+	transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.section-testimonials .fade-on-scroll.show {
+	opacity: 1;
+	transform: none;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 1200px) {
+	.testi-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: 20px;
+	}
+}
+
+@media (max-width: 768px) {
+	.section-testimonials {
+		padding: 70px 0 84px;
+	}
+	.quote-card {
+		padding: 22px 18px;
+	}
+	.quote-card blockquote {
+		font-size: 15.8px;
+	}
+}
+
+@media (max-width: 576px) {
+	.testi-grid {
+		grid-template-columns: 1fr; /* single column on phones */
+		gap: 16px;
+	}
+	.quote-card blockquote {
+		padding-left: 32px;
+	}
+	.quote-card blockquote::before {
+		top: -4px;
+		font-size: 46px;
+	}
+}
+
+/* ===== Reduced Motion (accessibility) ===== */
+@media (prefers-reduced-motion: reduce) {
+	.quote-card:hover {
+		transform: none;
+	}
+	.section-testimonials .fade-on-scroll {
+		opacity: 1 !important;
+		transform: none !important;
+		transition: none !important;
+	}
+}
 
 /* ================================
    MARK: STICKY CONTACT ICONS — KNM CLEAN VERSION
    Lighter tone, subtle shadows, elegant spacing
+   ================================ */
+
+/* ================================
+   MARK: STICKY CONTACT ICONS — Final Premium Version
    ================================ */
 
 .contact-dock {
@@ -739,14 +899,21 @@ a {
 	right: 0;
 	bottom: 0;
 	height: 72px;
-	background: #f8fafc; /* light neutral background */
-	box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	gap: 200px; /* wider spacing between icons */
+	gap: 200px;
 	z-index: 1040;
-	border-top: 1px solid rgba(0, 0, 0, 0.06);
+
+	/* 🔹 Frosted glass effect */
+	background: rgba(255, 255, 255, 0.85);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+
+	/* 🔹 Soft shadow + divider for separation */
+	box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(0, 0, 0, 0.08);
+	border-top: none;
+	border-radius: 0;
 }
 
 /* Circle buttons */
@@ -757,17 +924,32 @@ a {
 	width: 62px;
 	height: 62px;
 	border-radius: 50%;
-	background: #3e4a56; /* KNM primary tone */
+	background: #3e4a56;
 	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
 	transition: all 0.35s ease;
-	transform: translateY(0);
+	animation: dockPulse 2.4s ease-in-out infinite;
 }
 
-/* Hover effect — lift + gentle lightening */
+/* Pulse rhythm (gentle alternating) */
+@keyframes dockPulse {
+	0%,
+	100% {
+		transform: scale(1);
+		box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+	}
+	50% {
+		transform: scale(1.08);
+		box-shadow: 0 8px 22px rgba(62, 74, 86, 0.35);
+	}
+}
+.contact-dock a:nth-child(2) {
+	animation-delay: 1.2s;
+}
 .contact-dock a:hover {
 	transform: translateY(-5px);
-	background: #4b5a68; /* lighter tone */
+	background: #4b5a68;
 	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18), 0 0 10px rgba(62, 74, 86, 0.3);
+	animation-play-state: paused;
 }
 
 /* Icons */
@@ -775,19 +957,19 @@ a {
 	width: 30px;
 	height: 30px;
 	object-fit: contain;
-	filter: brightness(0) invert(1); /* make icons white */
+	filter: brightness(0) invert(1);
 	transition: transform 0.3s ease;
 }
-
 .contact-dock a:hover .dock-icon {
 	transform: scale(1.15);
 }
 
-/* Mobile adjustments */
+/* Responsive tweaks */
 @media (max-width: 768px) {
 	.contact-dock {
 		height: 64px;
-		gap: 180px; /* smaller gap on tablets */
+		gap: 160px;
+		backdrop-filter: blur(8px);
 	}
 	.contact-dock a {
 		width: 54px;
@@ -798,11 +980,10 @@ a {
 		height: 26px;
 	}
 }
-
 @media (max-width: 480px) {
 	.contact-dock {
 		height: 60px;
-		gap: 180px; /* comfortable on small screens */
+		gap: 140px;
 	}
 	.contact-dock a {
 		width: 50px;
@@ -811,5 +992,213 @@ a {
 	.dock-icon {
 		width: 24px;
 		height: 24px;
+	}
+}
+
+/* Accessibility: reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	.contact-dock a {
+		animation: none !important;
+	}
+}
+
+/* ================================
+   MARK: Contact Dock — Pulse animation
+   ================================ */
+
+/* Gentle scale + glow pulse */
+@keyframes dockPulse {
+	0%,
+	100% {
+		transform: scale(1);
+		box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+	}
+	50% {
+		transform: scale(1.08);
+		box-shadow: 0 8px 22px rgba(62, 74, 86, 0.35);
+	}
+}
+
+/* Apply pulse alternately to both icons */
+.contact-dock a {
+	animation: dockPulse 2.4s ease-in-out infinite;
+}
+
+/* Make the two icons pulse slightly out of sync for a “breathing” rhythm */
+.contact-dock a:nth-child(2) {
+	animation-delay: 1.2s;
+}
+
+/* Pause animation on hover (so it doesn’t fight the hover lift) */
+.contact-dock a:hover {
+	animation-play-state: paused;
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+	.contact-dock a {
+		animation: none !important;
+	}
+}
+
+/* ================================
+   MARK: CONTACT (copy-only)
+   ================================ */
+.section-contact {
+	background: #fff;
+	color: var(--knm-text);
+	padding: 64px 0 120px; /* extra bottom so it doesn't clash with the dock */
+	border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+.contact-kicker {
+	display: inline-block;
+	font: 700 12px/1 Manrope, sans-serif;
+	letter-spacing: 0.16em;
+	color: var(--knm-primary);
+	background: #eef2f6;
+	padding: 6px 10px;
+	border-radius: 999px;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+.contact-sub {
+	color: #5b6570;
+	max-width: 62ch;
+	margin: 6px auto 0;
+}
+
+/* ================================
+   MARK: Floating Dock Hint
+   ================================ */
+.dock-hint {
+	position: fixed;
+	left: 50%;
+	transform: translateX(-50%);
+	bottom: 92px; /* sits above the sticky dock (72px height + a bit) */
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	background: #101418;
+	color: #fff;
+	padding: 10px 14px;
+	border-radius: 999px;
+	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+	border: 1px solid rgba(255, 255, 255, 0.08);
+	z-index: 1200;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.dock-hint .hint-text {
+	font: 700 12.5px/1 Manrope, sans-serif;
+	letter-spacing: 0.04em;
+	opacity: 0.9;
+}
+
+.dock-hint .hint-arrow {
+	color: #ffffff;
+	opacity: 0.95;
+	animation: hintBounce 1.2s ease-in-out infinite;
+}
+
+/* Show state toggled by JS */
+.dock-hint.is-visible {
+	opacity: 1;
+	transform: translate(-50%, -4px);
+	pointer-events: auto;
+}
+
+/* Bounce keyframes */
+@keyframes hintBounce {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(6px);
+	}
+}
+
+/* Mobile spacing: keep clear of dock */
+@media (max-width: 576px) {
+	.section-contact {
+		padding-bottom: 110px;
+	}
+	.dock-hint {
+		bottom: 86px;
+	}
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+	.dock-hint .hint-arrow {
+		animation: none;
+	}
+}
+
+/* ================================
+   MARK: FOOTER — KNM Finance
+   ================================ */
+
+.section-footer {
+	background: #f8fafc; /* light neutral tone (same as contact dock) */
+	color: var(--knm-text);
+	padding: 48px 0 56px;
+	border-top: 1px solid rgba(0, 0, 0, 0.08);
+	text-align: center;
+}
+
+.footer-divider {
+	width: 80px;
+	height: 2px;
+	background: var(--knm-primary);
+	opacity: 0.7;
+	margin: 0 auto 18px;
+	border-radius: 2px;
+}
+
+.footer-text {
+	font-size: 15px;
+	margin-bottom: 8px;
+	color: #555d66;
+}
+
+.footer-credit {
+	font-size: 14px;
+	color: #7a858f;
+	letter-spacing: 0.3px;
+}
+
+.footer-credit a {
+	color: var(--knm-primary);
+	text-decoration: none;
+	font-weight: 700;
+	transition: color 0.25s ease;
+}
+
+.footer-credit a:hover {
+	color: #1a1a1a;
+}
+
+/* Subtle fade-in reuse */
+.section-footer .fade-on-scroll {
+	opacity: 0;
+	transform: translateY(10px);
+	transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.section-footer .fade-on-scroll.show {
+	opacity: 1;
+	transform: none;
+}
+
+/* Small screen spacing */
+@media (max-width: 576px) {
+	.section-footer {
+		padding: 40px 0 50px;
+	}
+	.footer-text,
+	.footer-credit {
+		font-size: 14px;
 	}
 }
