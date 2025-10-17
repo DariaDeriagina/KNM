@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<!-- Basics -->
+		<!--MARK: Basics -->
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>KNM Finance | Accounting, Tax & Advisory in Canada</title>
@@ -13,7 +13,7 @@
 		<meta name="robots" content="index,follow,max-image-preview:large" />
 		<meta name="theme-color" content="#3E4A56" />
 
-		<!-- Favicons -->
+		<!-- MARK:Favicons -->
 		<link
 			rel="apple-touch-icon"
 			sizes="180x180"
@@ -38,7 +38,7 @@
 			type="image/x-icon"
 		/>
 
-		<!-- Social -->
+		<!--MARK: Social -->
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://knmfinance.ca/" />
 		<meta property="og:title" content="KNM Finance — Accounting & Advisory" />
@@ -46,6 +46,7 @@
 			property="og:description"
 			content="Streamlined accounting, taxation, payroll, and business advisory for Canadian companies."
 		/>
+		<!-- Use a lightweight 1200x630 preview image -->
 		<meta
 			property="og:image"
 			content="https://knmfinance.ca/assets/og-image-1200x630.png"
@@ -95,17 +96,17 @@
 		</script>
 
 		<!-- Fonts -->
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap"
 			rel="stylesheet"
 		/>
 
-		<!-- Site CSS (minified only) -->
+		<!-- MARK: CSS -->
 		<link rel="stylesheet" href="/styles.min.css" />
 
-		<!-- Bootstrap CSS (non-blocking) -->
+		<!-- Bootstrap: load non-blocking -->
 		<link
 			rel="preload"
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -117,13 +118,16 @@
 			media="print"
 			onload="this.media='all'"
 		/>
-		<noscript
-			><link
+		<noscript>
+			<link
 				href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 				rel="stylesheet"
-		/></noscript>
+			/>
+		</noscript>
 
-		<!-- Preload LCP hero (must match <img src>) -->
+		<link rel="stylesheet" href="/styles.css" />
+
+		<!-- Preload LCP hero (matches default img src below) -->
 		<link
 			rel="preload"
 			as="image"
@@ -620,6 +624,15 @@
 		</footer>
 
 		<!-- Your script -->
+		<!-- Bootstrap bundle (deferred) -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+			defer
+		></script>
+
+		<!-- Your app script (minified) -->
+		<script src="/script.min.js" defer></script>
+
 		<script src="/script.js"></script>
 	</body>
 </html>
