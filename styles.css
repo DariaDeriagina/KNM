@@ -1,0 +1,380 @@
+/* ================================
+   KNM Finance — Global Styles
+   Fonts: Manrope + Inter
+   Palette: #3E4A56, #E8EBEE, #1A1A1A, #707981, #FFFFFF
+   ================================ */
+
+:root {
+	--knm-primary: #3e4a56;
+	--knm-light: #e8ebee;
+	--knm-text: #1a1a1a;
+	--knm-white: #ffffff;
+	--knm-muted: #707981;
+}
+
+/* Typography base */
+body {
+	font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+		"Helvetica Neue", Arial, sans-serif;
+	color: var(--knm-text);
+	background: #fff;
+}
+a {
+	text-decoration: none;
+}
+.manrope {
+	font-family: Manrope, Inter, sans-serif;
+}
+
+/*MARK: Header */
+.topbar {
+	border-bottom: 1px solid #e7ebef;
+	background: #fff;
+}
+.brand-mark {
+	height: 34px;
+}
+.nav-link {
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	color: #111;
+}
+.nav-link:hover {
+	color: var(--knm-primary);
+}
+/* sections linked via #hash won't hide under sticky navbar */
+[id] {
+	scroll-margin-top: 84px;
+} /* adjust if your navbar height changes */
+
+/* make the navbar logo bigger */
+.brand-mark {
+	height: 44px; /* was 34px */
+	width: auto; /* keep aspect ratio */
+	display: block; /* remove baseline gap */
+}
+
+/*sticky nav*/
+.topbar {
+	border-bottom: 1px solid #e7ebef;
+	background: #fff;
+	z-index: 1030; /* stay above content */
+}
+.nav-shadow {
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+}
+
+/* even bigger on desktop */
+@media (min-width: 992px) {
+	.brand-mark {
+		height: 52px;
+	}
+}
+
+/* optional: tighten navbar vertical padding so it stays neat */
+.navbar {
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+}
+
+/*MARK: Hero */
+.section-hero {
+	padding: 72px 0 56px;
+}
+.hero-title {
+	font: 700 clamp(32px, 5.4vw, 80px) / 1.05 Manrope, sans-serif;
+	color: var(--knm-primary);
+	margin-bottom: 8px;
+}
+.hero-sub {
+	color: #4a5560;
+	margin-bottom: 22px;
+}
+/* square buttons + perfectly centered text */
+.btn-cta {
+	border-radius: 0 !important; /* remove rounded corners */
+	display: inline-flex; /* keep flex centering */
+	align-items: center;
+	justify-content: center;
+	text-align: center; /* ensure text is centered */
+}
+
+.btn-primary-knm {
+	border-radius: 0;
+	background: var(--knm-primary);
+	color: #fff;
+	border: 1px solid rgba(0, 0, 0, 0.08);
+}
+.btn-primary-knm:hover {
+	background: #1a1a1a;
+	color: #fff;
+}
+.btn-outline-knm {
+	border-radius: 0;
+	border: 2px solid var(--knm-primary);
+	color: var(--knm-primary);
+	background: #fff;
+	font-weight: 600;
+}
+.btn-outline-knm:hover {
+	background: var(--knm-light);
+}
+.btn-gap > * + * {
+	margin-left: 12px;
+}
+/* Bigger, square, perfectly centered CTAs */
+.btn-gap {
+	display: flex;
+	align-items: center;
+	gap: 16px; /* replaces the margin-left hack */
+	flex-wrap: wrap; /* nice on smaller screens */
+}
+
+.btn-cta {
+	border-radius: 0 !important;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	line-height: 1; /* keeps text centered vertically */
+	min-width: 260px; /* makes them feel substantial */
+	height: 60px; /* ↑ height */
+	padding: 0 40px; /* ↑ horizontal padding */
+	font-size: 18px; /* ↑ text size */
+	font-weight: 700; /* bolder label */
+	letter-spacing: 0.6px;
+	text-transform: uppercase;
+}
+
+/* Variants keep the square look */
+.btn-primary-knm {
+	border-radius: 0 !important;
+	background: var(--knm-primary);
+	color: #fff;
+	border: 1px solid rgba(0, 0, 0, 0.08);
+}
+.btn-primary-knm:hover {
+	background: #1a1a1a;
+	color: #fff;
+}
+
+.btn-outline-knm {
+	border-radius: 0 !important;
+	border: 2px solid var(--knm-primary);
+	color: var(--knm-primary);
+	background: #fff;
+	font-weight: 700; /* match primary weight */
+}
+.btn-outline-knm:hover {
+	background: var(--knm-light);
+}
+
+/* Mobile/tablet sizing */
+@media (max-width: 991.98px) {
+	.btn-cta {
+		width: 100%;
+		max-width: 360px; /* keeps them tidy on small screens */
+		height: 56px;
+		font-size: 16px;
+		padding: 0 28px;
+	}
+}
+
+.hero-img {
+	width: 80%;
+	height: auto;
+	border-radius: 6px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+/* ===== Mobile/tablet centering ===== */
+@media (max-width: 991.98px) {
+	/* center the hero text block */
+	.section-hero .col-lg-7 {
+		text-align: center;
+	}
+
+	/* center the buttons row */
+	.btn-gap {
+		justify-content: center; /* puts both buttons in the middle */
+		width: 100%;
+	}
+
+	/* make image full-width and centered */
+	.hero-img {
+		display: block;
+		margin: 16px auto 0; /* centers horizontally */
+		width: 100%;
+		max-width: 420px; /* keeps it elegant on small screens */
+	}
+}
+
+/*MARK:  Services */
+.section-services {
+	background: var(--knm-primary);
+	color: #fff;
+	padding: 54px 0 70px;
+	border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.section-services .lead {
+	color: var(--knm-light);
+}
+.svc-divider {
+	height: 1px;
+	background: rgba(255, 255, 255, 0.25);
+	margin: 14px 0 26px;
+}
+
+.svc-card {
+	background: #fff;
+	color: #2b333a;
+	border: 0;
+	border-radius: 10px;
+	padding: 18px;
+	height: 100%;
+	box-shadow: 0 2px 0 rgba(0, 0, 0, 0.04);
+}
+.svc-title {
+	font: 600 16px/1.35 Manrope, sans-serif;
+	color: #111;
+	margin: 12px 0 6px;
+}
+.svc-text {
+	font-size: 14px;
+	color: #505a63;
+	margin-bottom: 10px;
+}
+
+.svc-image {
+	width: 170px;
+	height: 170px;
+	border-radius: 50%;
+	object-fit: cover;
+	display: block;
+	margin-inline: auto;
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+}
+
+/* Minimal fade-in animation (IntersectionObserver toggles .show) */
+.fade-on-scroll {
+	opacity: 0;
+	transform: translateY(14px);
+	transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.fade-on-scroll.show {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+/* Utilities */
+.muted {
+	color: var(--knm-muted);
+}
+
+/* Responsive tweaks */
+@media (max-width: 991.98px) {
+	.section-hero {
+		padding: 48px 0;
+	}
+	.btn-gap {
+		display: flex;
+		gap: 12px;
+		flex-wrap: wrap;
+	}
+}
+
+/* Reduced motion: show instantly, no transforms */
+@media (prefers-reduced-motion: reduce) {
+	.fade-on-scroll {
+		opacity: 1 !important;
+		transform: none !important;
+		transition: none !important;
+	}
+	.btn-cta:hover {
+		transform: none;
+	}
+}
+/* ================================
+   MARK: STICKY CONTACT ICONS — KNM CLEAN VERSION
+   Lighter tone, subtle shadows, elegant spacing
+   ================================ */
+
+.contact-dock {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 72px;
+	background: #f8fafc; /* light neutral background */
+	box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 200px; /* wider spacing between icons */
+	z-index: 1040;
+	border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Circle buttons */
+.contact-dock a {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 62px;
+	height: 62px;
+	border-radius: 50%;
+	background: #3e4a56; /* KNM primary tone */
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+	transition: all 0.35s ease;
+	transform: translateY(0);
+}
+
+/* Hover effect — lift + gentle lightening */
+.contact-dock a:hover {
+	transform: translateY(-5px);
+	background: #4b5a68; /* lighter tone */
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18), 0 0 10px rgba(62, 74, 86, 0.3);
+}
+
+/* Icons */
+.dock-icon {
+	width: 30px;
+	height: 30px;
+	object-fit: contain;
+	filter: brightness(0) invert(1); /* make icons white */
+	transition: transform 0.3s ease;
+}
+
+.contact-dock a:hover .dock-icon {
+	transform: scale(1.15);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+	.contact-dock {
+		height: 64px;
+		gap: 180px; /* smaller gap on tablets */
+	}
+	.contact-dock a {
+		width: 54px;
+		height: 54px;
+	}
+	.dock-icon {
+		width: 26px;
+		height: 26px;
+	}
+}
+
+@media (max-width: 480px) {
+	.contact-dock {
+		height: 60px;
+		gap: 180px; /* comfortable on small screens */
+	}
+	.contact-dock a {
+		width: 50px;
+		height: 50px;
+	}
+	.dock-icon {
+		width: 24px;
+		height: 24px;
+	}
+}
