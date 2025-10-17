@@ -1151,3 +1151,29 @@ a {
 		font-size: 14px;
 	}
 }
+/* === Hero layout fix (image right on desktop, centered on mobile) === */
+.section-hero .col-lg-5 {
+	display: flex;
+	justify-content: flex-end; /* push picture to the right on lg+ */
+	align-items: center;
+}
+
+/* Replace older .hero-img sizing with this more robust set */
+.hero-img {
+	max-width: 560px; /* nice cap on large screens */
+	width: 100%; /* responsive */
+	height: auto; /* keep aspect ratio */
+	aspect-ratio: 2 / 3; /* 960 x 1440; helps prevent CLS */
+	border-radius: 6px;
+	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Mobile/tablet: center the image column and the image */
+@media (max-width: 991.98px) {
+	.section-hero .col-lg-5 {
+		justify-content: center; /* center picture on small screens */
+	}
+	.section-hero .col-lg-7 {
+		text-align: center; /* keep text centered (you already had this) */
+	}
+}
