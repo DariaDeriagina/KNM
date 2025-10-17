@@ -293,3 +293,88 @@ a {
 		transform: none;
 	}
 }
+/* ================================
+   MARK: STICKY CONTACT ICONS — KNM CLEAN VERSION
+   Lighter tone, subtle shadows, elegant spacing
+   ================================ */
+
+.contact-dock {
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 72px;
+	background: #f8fafc; /* light neutral background */
+	box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 200px; /* wider spacing between icons */
+	z-index: 1040;
+	border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* Circle buttons */
+.contact-dock a {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 62px;
+	height: 62px;
+	border-radius: 50%;
+	background: #3e4a56; /* KNM primary tone */
+	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+	transition: all 0.35s ease;
+	transform: translateY(0);
+}
+
+/* Hover effect — lift + gentle lightening */
+.contact-dock a:hover {
+	transform: translateY(-5px);
+	background: #4b5a68; /* lighter tone */
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18), 0 0 10px rgba(62, 74, 86, 0.3);
+}
+
+/* Icons */
+.dock-icon {
+	width: 30px;
+	height: 30px;
+	object-fit: contain;
+	filter: brightness(0) invert(1); /* make icons white */
+	transition: transform 0.3s ease;
+}
+
+.contact-dock a:hover .dock-icon {
+	transform: scale(1.15);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+	.contact-dock {
+		height: 64px;
+		gap: 180px; /* smaller gap on tablets */
+	}
+	.contact-dock a {
+		width: 54px;
+		height: 54px;
+	}
+	.dock-icon {
+		width: 26px;
+		height: 26px;
+	}
+}
+
+@media (max-width: 480px) {
+	.contact-dock {
+		height: 60px;
+		gap: 180px; /* comfortable on small screens */
+	}
+	.contact-dock a {
+		width: 50px;
+		height: 50px;
+	}
+	.dock-icon {
+		width: 24px;
+		height: 24px;
+	}
+}
