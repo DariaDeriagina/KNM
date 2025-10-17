@@ -885,12 +885,7 @@ a {
 }
 
 /* ================================
-   MARK: STICKY CONTACT ICONS — KNM CLEAN VERSION
-   Lighter tone, subtle shadows, elegant spacing
-   ================================ */
-
-/* ================================
-   MARK: STICKY CONTACT ICONS — Final Premium Version
+   MARK: STICKY CONTACT ICONS — Final Clean
    ================================ */
 
 .contact-dock {
@@ -905,15 +900,11 @@ a {
 	gap: 200px;
 	z-index: 1040;
 
-	/* 🔹 Frosted glass effect */
+	/* Frosted glass + soft divider */
 	background: rgba(255, 255, 255, 0.85);
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
-
-	/* 🔹 Soft shadow + divider for separation */
 	box-shadow: 0 -8px 20px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(0, 0, 0, 0.08);
-	border-top: none;
-	border-radius: 0;
 }
 
 /* Circle buttons */
@@ -930,21 +921,12 @@ a {
 	animation: dockPulse 2.4s ease-in-out infinite;
 }
 
-/* Pulse rhythm (gentle alternating) */
-@keyframes dockPulse {
-	0%,
-	100% {
-		transform: scale(1);
-		box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-	}
-	50% {
-		transform: scale(1.08);
-		box-shadow: 0 8px 22px rgba(62, 74, 86, 0.35);
-	}
-}
+/* Alternate pulse timing for a breathing rhythm */
 .contact-dock a:nth-child(2) {
 	animation-delay: 1.2s;
 }
+
+/* Hover lift (pauses pulse while hovering) */
 .contact-dock a:hover {
 	transform: translateY(-5px);
 	background: #4b5a68;
@@ -962,6 +944,19 @@ a {
 }
 .contact-dock a:hover .dock-icon {
 	transform: scale(1.15);
+}
+
+/* Pulse keyframes (defined ONCE) */
+@keyframes dockPulse {
+	0%,
+	100% {
+		transform: scale(1);
+		box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+	}
+	50% {
+		transform: scale(1.08);
+		box-shadow: 0 8px 22px rgba(62, 74, 86, 0.35);
+	}
 }
 
 /* Responsive tweaks */
@@ -995,7 +990,7 @@ a {
 	}
 }
 
-/* Accessibility: reduced motion */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
 	.contact-dock a {
 		animation: none !important;
@@ -1003,51 +998,12 @@ a {
 }
 
 /* ================================
-   MARK: Contact Dock — Pulse animation
-   ================================ */
-
-/* Gentle scale + glow pulse */
-@keyframes dockPulse {
-	0%,
-	100% {
-		transform: scale(1);
-		box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-	}
-	50% {
-		transform: scale(1.08);
-		box-shadow: 0 8px 22px rgba(62, 74, 86, 0.35);
-	}
-}
-
-/* Apply pulse alternately to both icons */
-.contact-dock a {
-	animation: dockPulse 2.4s ease-in-out infinite;
-}
-
-/* Make the two icons pulse slightly out of sync for a “breathing” rhythm */
-.contact-dock a:nth-child(2) {
-	animation-delay: 1.2s;
-}
-
-/* Pause animation on hover (so it doesn’t fight the hover lift) */
-.contact-dock a:hover {
-	animation-play-state: paused;
-}
-
-/* Reduced motion accessibility */
-@media (prefers-reduced-motion: reduce) {
-	.contact-dock a {
-		animation: none !important;
-	}
-}
-
-/* ================================
-   MARK: CONTACT (copy-only)
+   CONTACT SECTION (copy-only padding)
    ================================ */
 .section-contact {
 	background: #fff;
 	color: var(--knm-text);
-	padding: 64px 0 120px; /* extra bottom so it doesn't clash with the dock */
+	padding: 64px 0 120px; /* extra bottom: clear of dock */
 	border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
 .contact-kicker {
@@ -1066,15 +1022,20 @@ a {
 	max-width: 62ch;
 	margin: 6px auto 0;
 }
+@media (max-width: 576px) {
+	.section-contact {
+		padding-bottom: 110px;
+	}
+}
 
 /* ================================
-   MARK: Floating Dock Hint
+   FLOATING DOCK HINT (arrow + chip)
    ================================ */
 .dock-hint {
 	position: fixed;
 	left: 50%;
 	transform: translateX(-50%);
-	bottom: 92px; /* sits above the sticky dock (72px height + a bit) */
+	bottom: 92px; /* above the dock */
 	display: inline-flex;
 	align-items: center;
 	gap: 10px;
@@ -1089,27 +1050,21 @@ a {
 	pointer-events: none;
 	transition: opacity 0.35s ease, transform 0.35s ease;
 }
-
 .dock-hint .hint-text {
 	font: 700 12.5px/1 Manrope, sans-serif;
 	letter-spacing: 0.04em;
 	opacity: 0.9;
 }
-
 .dock-hint .hint-arrow {
-	color: #ffffff;
 	opacity: 0.95;
 	animation: hintBounce 1.2s ease-in-out infinite;
 }
-
-/* Show state toggled by JS */
 .dock-hint.is-visible {
 	opacity: 1;
 	transform: translate(-50%, -4px);
 	pointer-events: auto;
 }
 
-/* Bounce keyframes */
 @keyframes hintBounce {
 	0%,
 	100% {
@@ -1120,17 +1075,11 @@ a {
 	}
 }
 
-/* Mobile spacing: keep clear of dock */
 @media (max-width: 576px) {
-	.section-contact {
-		padding-bottom: 110px;
-	}
 	.dock-hint {
 		bottom: 86px;
 	}
 }
-
-/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
 	.dock-hint .hint-arrow {
 		animation: none;
