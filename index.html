@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<!-- Basics -->
+		<!--MARK: Basics -->
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>KNM Finance | Accounting, Tax & Advisory in Canada</title>
@@ -13,7 +13,7 @@
 		<meta name="robots" content="index,follow,max-image-preview:large" />
 		<meta name="theme-color" content="#3E4A56" />
 
-		<!-- Favicons -->
+		<!-- MARK:Favicons -->
 		<link
 			rel="apple-touch-icon"
 			sizes="180x180"
@@ -38,7 +38,7 @@
 			type="image/x-icon"
 		/>
 
-		<!-- Social -->
+		<!--MARK: Social -->
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://knmfinance.ca/" />
 		<meta property="og:title" content="KNM Finance — Accounting & Advisory" />
@@ -46,9 +46,10 @@
 			property="og:description"
 			content="Streamlined accounting, taxation, payroll, and business advisory for Canadian companies."
 		/>
+		<!-- Use a lightweight 1200x630 preview image -->
 		<meta
 			property="og:image"
-			content="https://knmfinance.ca/assets/og-image.png"
+			content="https://knmfinance.ca/assets/og-image-1200x630.png"
 		/>
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
@@ -66,8 +67,33 @@
 		/>
 		<meta
 			name="twitter:image"
-			content="https://knmfinance.ca/assets/og-image.png"
+			content="https://knmfinance.ca/assets/og-image-1200x630.png"
 		/>
+
+		<!-- Structured Data -->
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Organization",
+				"name": "KNM Finance",
+				"url": "https://knmfinance.ca/",
+				"logo": "https://knmfinance.ca/assets/KNM_Logo.png",
+				"sameAs": []
+			}
+		</script>
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "WebSite",
+				"url": "https://knmfinance.ca/",
+				"name": "KNM Finance",
+				"potentialAction": {
+					"@type": "SearchAction",
+					"target": "https://knmfinance.ca/?q={search_term_string}",
+					"query-input": "required name=search_term_string"
+				}
+			}
+		</script>
 
 		<!-- Fonts -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
@@ -77,11 +103,26 @@
 			rel="stylesheet"
 		/>
 
-		<!-- CSS -->
+		<!-- MARK: CSS -->
+		<!-- Bootstrap: load non-blocking -->
+		<link
+			rel="preload"
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+			as="style"
+		/>
 		<link
 			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
 			rel="stylesheet"
+			media="print"
+			onload="this.media='all'"
 		/>
+		<noscript>
+			<link
+				href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+				rel="stylesheet"
+			/>
+		</noscript>
+
 		<link rel="stylesheet" href="/styles.css" />
 
 		<!-- Preload LCP hero (matches default img src below) -->
@@ -96,7 +137,7 @@
 	</head>
 
 	<body>
-		<!-- ================= HEADER ================= -->
+		<!-- =================MARK: HEADER ================= -->
 		<nav class="navbar navbar-expand-lg topbar sticky-top">
 			<div class="container">
 				<a class="navbar-brand d-flex align-items-center gap-2" href="#main">
@@ -144,7 +185,7 @@
 			</div>
 		</nav>
 
-		<!-- ================= HERO ================= -->
+		<!-- =================MARK: HERO ================= -->
 		<section class="section-hero" id="main">
 			<div class="container">
 				<div class="row align-items-center gy-4">
@@ -198,7 +239,7 @@
 			</div>
 		</section>
 
-		<!-- ================= SERVICES ================= -->
+		<!-- =================MARK: SERVICES ================= -->
 		<section id="services" class="section-services">
 			<div class="container">
 				<h2 class="manrope fw-bold display-6 fade-on-scroll">Services</h2>
@@ -213,8 +254,8 @@
 								class="svc-image"
 								src="/assets/ServicePic1.png"
 								alt="Accounting & Banking image"
-								width="961"
-								height="961"
+								width="150"
+								height="150"
 								loading="lazy"
 								decoding="async"
 							/>
@@ -234,8 +275,8 @@
 								class="svc-image"
 								src="/assets/ServicePic4.png"
 								alt="Advisory image"
-								width="961"
-								height="961"
+								width="150"
+								height="150"
 								loading="lazy"
 								decoding="async"
 							/>
@@ -255,8 +296,8 @@
 								class="svc-image"
 								src="/assets/ServicePic2.png"
 								alt="Taxation image"
-								width="241"
-								height="241"
+								width="150"
+								height="150"
 								loading="lazy"
 								decoding="async"
 							/>
@@ -276,8 +317,8 @@
 								class="svc-image"
 								src="/assets/ServicePic3.png"
 								alt="Payroll image"
-								width="241"
-								height="241"
+								width="150"
+								height="150"
 								loading="lazy"
 								decoding="async"
 							/>
@@ -294,7 +335,7 @@
 			</div>
 		</section>
 
-		<!-- ================= ABOUT ================= -->
+		<!-- =================MARK: ABOUT ================= -->
 		<section id="about" class="section-about">
 			<div class="container">
 				<!-- Heading row -->
@@ -357,7 +398,7 @@
 			</div>
 		</section>
 
-		<!-- ================= RESULTS ================= -->
+		<!-- =================MARK: RESULTS ================= -->
 		<section id="results" class="section-results">
 			<div class="container">
 				<h2 class="manrope fw-bold display-6 fade-on-scroll">
@@ -421,7 +462,7 @@
 			</div>
 		</section>
 
-		<!-- ================= COMMITMENT ================= -->
+		<!-- =================MARK: COMMITMENT ================= -->
 		<section id="commitment" class="section-commitment">
 			<div class="container">
 				<div class="commit-grid">
@@ -566,7 +607,7 @@
 			</div>
 		</section>
 
-		<!-- ================= FOOTER ================= -->
+		<!-- ================= MARK: FOOTER ================= -->
 		<footer id="footer" class="section-footer">
 			<div class="container text-center">
 				<div class="footer-divider"></div>
