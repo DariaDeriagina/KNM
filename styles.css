@@ -239,6 +239,17 @@ a {
 	}
 }
 
+/* MOBILE — hero title align right */
+@media (max-width: 576px) {
+	.hero-title-stacked {
+		text-align: left;
+		margin-left: 20px;
+	}
+	.hero-sub {
+		text-align: center;
+	}
+}
+
 /* ================================
    MARK: SERVICES SECTION (KNM Finance)
    Equal card size + centered compact lists
@@ -932,17 +943,29 @@ a {
 	animation: dockPulse 2.4s ease-in-out infinite;
 }
 
-/* Alternate pulse timing for a breathing rhythm */
-.contact-dock a:nth-child(2) {
-	animation-delay: 1.2s;
+/* ================================
+   MARK: Contact Dock — Premium Variant
+   ================================ */
+
+/* Email button — premium blue */
+.contact-dock a[aria-label="Email"] {
+	background-color: #1e3a8a; /* premium deep blue */
 }
 
-/* Hover lift (pauses pulse while hovering) */
+/* Phone button — premium green */
+.contact-dock a[aria-label="Phone"] {
+	background-color: #0f6b39; /* premium financial green */
+}
+
+/* Icon stays white */
+.contact-dock a .dock-icon {
+	filter: brightness(0) invert(1); /* ensures pure white */
+}
+
+/* Hover */
 .contact-dock a:hover {
 	transform: translateY(-5px);
-	background: #4b5a68;
-	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18), 0 0 10px rgba(62, 74, 86, 0.3);
-	animation-play-state: paused;
+	filter: brightness(1.07);
 }
 
 /* Icons */
@@ -1005,6 +1028,13 @@ a {
 @media (prefers-reduced-motion: reduce) {
 	.contact-dock a {
 		animation: none !important;
+	}
+}
+
+/* MARK: Contact dock — only mobile */
+@media (min-width: 992px) {
+	.contact-dock {
+		display: none !important;
 	}
 }
 
@@ -1186,5 +1216,74 @@ a {
 	}
 	.section-hero .col-lg-7 {
 		text-align: center; /* keep text centered (you already had this) */
+	}
+}
+/* ===========================
+   DESKTOP CONTACT ICONS IN CONTACT SECTION
+   Premium Style + Pulsation
+   =========================== */
+
+.desktop-contact-icons {
+	margin-top: 32px;
+	display: flex;
+	justify-content: center;
+	gap: 120px;
+}
+
+.dc-icon {
+	width: 82px;
+	height: 82px;
+	border-radius: 50%;
+	background: #ffffff;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+	transition: 0.3s ease;
+	position: relative;
+	animation: dcPulse 2.6s ease-in-out infinite;
+}
+
+.dc-icon img {
+	width: 40px;
+	height: 40px;
+}
+
+.dc-icon.email {
+	background-color: #1e3a8a; /* premium blue */
+}
+.dc-icon.phone {
+	background-color: #0f6b39; /* premium green */
+}
+
+.dc-icon:hover {
+	transform: translateY(-6px) scale(1.05);
+	box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
+	animation-play-state: paused;
+}
+
+@keyframes dcPulse {
+	0%,
+	100% {
+		transform: scale(1);
+		box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+	}
+	50% {
+		transform: scale(1.08);
+		box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+	}
+}
+
+/* Mobile — hide desktop icons */
+@media (max-width: 991px) {
+	.desktop-contact-icons {
+		display: none;
+	}
+}
+
+/* Desktop — hide sticky dock */
+@media (min-width: 992px) {
+	.contact-dock {
+		display: none !important;
 	}
 }

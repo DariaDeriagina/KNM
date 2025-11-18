@@ -193,7 +193,8 @@
 					<!-- Left copy -->
 					<div class="col-lg-7">
 						<h1 class="visually-hidden">
-							Tax Services & Accounting by Kirill Samokhin — KNM Finance Canada
+							Tax Services &amp; Accounting by Kirill Samokhin — KNM Finance
+							Canada
 						</h1>
 
 						<h1 class="hero-title hero-title-stacked fade-on-scroll">
@@ -204,16 +205,25 @@
 						</h1>
 
 						<p class="hero-sub fs-5 fade-on-scroll">Expertise You Can Trust</p>
+
 						<div class="btn-gap mt-3 fade-on-scroll">
-							<a href="#services" class="btn btn-cta btn-primary-knm"
-								>Explore Our Services</a
-							>
+							<a href="#services" class="btn btn-cta btn-primary-knm">
+								Explore Our Services
+							</a>
 						</div>
 					</div>
 
 					<!-- Right image -->
 					<div class="col-lg-5 fade-on-scroll text-center text-lg-end">
 						<picture>
+							<!-- Mobile: dedicated PNG art direction -->
+							<source
+								srcset="/assets/main-mobile.png"
+								media="(max-width: 767.98px)"
+								type="image/png"
+							/>
+
+							<!-- Tablet / Desktop: AVIF -->
 							<source
 								type="image/avif"
 								srcset="
@@ -223,6 +233,8 @@
 								"
 								sizes="(max-width: 991px) 90vw, 40vw"
 							/>
+
+							<!-- Tablet / Desktop: WebP -->
 							<source
 								type="image/webp"
 								srcset="
@@ -232,7 +244,8 @@
 								"
 								sizes="(max-width: 991px) 90vw, 40vw"
 							/>
-							<!-- Eager + high priority; intrinsic dimensions to avoid CLS -->
+
+							<!-- Fallback image (desktop default) -->
 							<img
 								src="/assets/mainimageright-960.webp"
 								alt="Advisor working in KNM office"
@@ -608,9 +621,18 @@
 				<span class="contact-kicker">Get in touch</span>
 				<h2 class="manrope fw-bold display-6">Want to contact us?</h2>
 				<p class="contact-sub">
-					Hey! Look below — those magic buttons let you <strong>call</strong> or
-					<strong>email</strong> instantly.
+					Contact our team with any accounting, tax, or advisory questions.<br />
+					We are always ready to help.
 				</p>
+
+				<div class="desktop-contact-icons">
+					<a href="mailto:KirillSamokhin@gmail.com" class="dc-icon email">
+						<img src="/assets/icons/EmailKNM.png" alt="Email" />
+					</a>
+					<a href="tel:+16479884786" class="dc-icon phone">
+						<img src="/assets/icons/PhoneKNM.png" alt="Phone" />
+					</a>
+				</div>
 			</div>
 		</section>
 
