@@ -268,48 +268,6 @@ a {
 		height: 210px;
 	}
 }
-/* =========================================
-   HERO — desktop word-by-word reveal
-   ========================================= */
-@media (min-width: 992px) {
-	.hero-title-stacked span {
-		opacity: 0;
-		transform: translateY(18px);
-		display: block;
-	}
-
-	/* When the H1 gets .show from fade-on-scroll */
-	.hero-title-stacked.show span {
-		animation: heroLineIn 0.65s forwards ease-out;
-	}
-
-	.hero-title-stacked.show span:nth-child(1) {
-		animation-delay: 0.1s;
-	}
-
-	.hero-title-stacked.show span:nth-child(2) {
-		animation-delay: 0.25s;
-	}
-
-	.hero-title-stacked.show span:nth-child(3) {
-		animation-delay: 0.4s;
-	}
-
-	.hero-title-stacked.show span:nth-child(4) {
-		animation-delay: 0.55s;
-	}
-
-	@keyframes heroLineIn {
-		from {
-			opacity: 0;
-			transform: translateY(18px);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-}
 
 /* =========================================
    HERO — mobile word-by-word reveal (same as desktop)
@@ -427,6 +385,47 @@ a {
 		width: 160px;
 		height: 160px;
 		pointer-events: none; /* prevents blocking clicks */
+	}
+}
+/* =========================================
+   HERO — word-by-word reveal (desktop + mobile)
+   ========================================= */
+
+.hero-title-stacked span {
+	opacity: 0;
+	transform: translateY(18px);
+	display: block;
+}
+
+/* When the H1 gets .show from fade-on-scroll */
+.hero-title-stacked.show span {
+	animation: heroLineIn 0.65s forwards ease-out;
+}
+
+.hero-title-stacked.show span:nth-child(1) {
+	animation-delay: 0.1s;
+}
+
+.hero-title-stacked.show span:nth-child(2) {
+	animation-delay: 0.25s;
+}
+
+.hero-title-stacked.show span:nth-child(3) {
+	animation-delay: 0.4s;
+}
+
+.hero-title-stacked.show span:nth-child(4) {
+	animation-delay: 0.55s;
+}
+
+@keyframes heroLineIn {
+	from {
+		opacity: 0;
+		transform: translateY(18px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
 	}
 }
 
@@ -902,40 +901,31 @@ a {
 /* Left copy */
 .commit-copy {
 	position: relative;
-	padding-left: 18px; /* room for accent bar */
+	padding-left: 20px; /* space for accent bar */
 }
 
 .commit-copy::before {
 	content: "";
 	position: absolute;
 	left: 0;
-	top: 0.35rem;
-	width: 6px;
-	height: 44px;
+	top: 0.4rem;
+	width: 4px;
+	height: 56px;
 	background: var(--knm-primary);
-	border-radius: 3px;
-	opacity: 0.95;
-}
-
-.commit-kicker {
-	display: inline-block;
-	font: 700 12px/1 Manrope, sans-serif;
-	letter-spacing: 0.18em;
-	color: var(--knm-primary);
-	background: #eef2f6;
-	padding: 6px 12px;
 	border-radius: 999px;
-	margin-bottom: 10px;
-	text-transform: uppercase;
-	white-space: nowrap;
+	opacity: 0.9;
 }
 
+/* Main heading */
 .commit-title {
-	font: 800 clamp(22px, 3.2vw, 34px) / 1.15 Manrope, sans-serif;
+	font: 800 clamp(30px, 3.4vw, 46px) / 1.08 Manrope, sans-serif;
 	color: #111;
-	margin: 4px 0 10px;
+	margin: 0 0 18px;
+	letter-spacing: -0.02em;
+	text-transform: none; /* only first letters capital, as you typed */
 }
 
+/* Body text */
 .section-commitment p {
 	color: #1a1a1a;
 	font-size: 16.5px;
@@ -972,7 +962,7 @@ a {
 	pointer-events: none;
 }
 
-/* Reuse fade-on-scroll timing */
+/* Fade-on-scroll reuse */
 .section-commitment .fade-on-scroll {
 	opacity: 0;
 	transform: translateY(14px);
@@ -984,7 +974,7 @@ a {
 	transform: none;
 }
 
-/* Commitment responsive */
+/* Responsive */
 @media (max-width: 992px) {
 	.section-commitment {
 		padding: 56px 0 76px;
@@ -992,48 +982,27 @@ a {
 
 	.commit-grid {
 		grid-template-columns: 1fr;
-		gap: 18px;
+		gap: 20px;
 	}
 
 	.commit-copy {
-		padding-left: 14px;
+		padding-left: 16px;
 	}
 
 	.commit-copy::before {
-		height: 36px;
+		height: 48px;
 	}
 }
 
 @media (max-width: 576px) {
+	.commit-title {
+		font-size: 26px;
+		line-height: 1.1;
+	}
+
 	.section-commitment p {
 		font-size: 15.5px;
 		line-height: 1.55;
-	}
-}
-
-/* Desktop: make commitment label big & bold */
-@media (min-width: 992px) {
-	.commit-kicker {
-		font-size: 14px;
-		letter-spacing: 0.26em;
-		padding: 10px 22px;
-		border-radius: 999px;
-		box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
-		background: #e3e8f2;
-	}
-
-	.commit-copy {
-		padding-left: 22px;
-	}
-
-	.commit-copy::before {
-		top: 0.6rem;
-		height: 56px;
-	}
-
-	.commit-media {
-		max-width: 380px; /* 420–520 also works, pick client preference */
-		margin-left: auto;
 	}
 }
 
