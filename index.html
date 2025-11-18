@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-CA">
 	<head>
 		<!--MARK: Basics -->
 		<meta charset="utf-8" />
@@ -42,10 +42,7 @@
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://knmfinance.ca/" />
 		<meta property="og:title" content="KNM Finance — Accounting & Advisory" />
-		<meta
-			property="og:description"
-			content="Streamlined accounting, taxation, payroll, and business advisory for Canadian companies."
-		/>
+	
 		<!-- Use a lightweight 1200x630 preview image -->
 		<meta
 			property="og:image"
@@ -61,27 +58,30 @@
 		<meta property="og:locale" content="en_CA" />
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content="KNM Finance — Accounting & Advisory" />
-		<meta
-			name="description"
-			content="Tax services in Canada by Kirill Samokhin. KNM Finance offers accounting, bookkeeping, and tax filing for individuals and businesses across Canada. Reliable taxation support with professional expertise."
-		/>
-
+	
 		<meta
 			name="twitter:image"
 			content="https://knmfinance.ca/assets/og-image-1200x630.png"
 		/>
 
 		<!-- Structured Data -->
-		<script type="application/ld+json">
-			{
-				"@context": "https://schema.org",
-				"@type": "Organization",
-				"name": "KNM Finance",
-				"url": "https://knmfinance.ca/",
-				"logo": "https://knmfinance.ca/assets/KNM_Logo.png",
-				"sameAs": []
-			}
-		</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "KNM Finance",
+  "url": "https://knmfinance.ca/",
+  "logo": "https://knmfinance.ca/assets/KNM_Logo.png",
+  "telephone": "+1-647-988-4786",
+  "email": "KirillSamokhin@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "CA"
+  },
+  "sameAs": []
+}
+</script>
+
 		<script type="application/ld+json">
 			{
 				"@context": "https://schema.org",
@@ -128,13 +128,7 @@
 
 		<link rel="stylesheet" href="/styles.css" />
 
-		<!-- Preload LCP hero (matches default img src below) -->
-		<link
-			rel="preload"
-			as="image"
-			href="/assets/mainimageright-960.webp"
-			fetchpriority="high"
-		/>
+		
 	</head>
 
 	<body>
@@ -192,17 +186,17 @@
 				<div class="row align-items-center gy-4">
 					<!-- Left copy -->
 					<div class="col-lg-7">
-						<h1 class="visually-hidden">
-							Tax Services &amp; Accounting by Kirill Samokhin — KNM Finance
-							Canada
-						</h1>
+						<p class="visually-hidden">
+  Tax Services &amp; Accounting by Kirill Samokhin — KNM Finance Canada
+</p>
 
-						<h1 class="hero-title hero-title-stacked fade-on-scroll">
-							<span>Your</span>
-							<span>Finance</span>
-							<span>Our</span>
-							<span>Expertise</span>
-						</h1>
+<h1 class="hero-title hero-title-stacked fade-on-scroll">
+  <span>Your</span>
+  <span>Finance</span>
+  <span>Our</span>
+  <span>Expertise</span>
+</h1>
+
 
 						<p class="hero-sub fs-5 fade-on-scroll">Expertise You Can Trust</p>
 
@@ -347,7 +341,7 @@
 					<div class="col-auto">
 						<img
 							src="/assets/LogoAboutUsSection.png"
-							alt=""
+							alt="KNM Finance badge"
 							class="about-badge"
 							width="514"
 							height="483"
@@ -672,7 +666,7 @@
 		<!-- Your app script (minified) -->
 		<script src="/script.min.js" defer></script>
 
-		<script src="/script.js"></script>
+		<!-- <script src="/script.js"></script> -->
 		<!-- Lottie web component -->
 		<script
 			src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js"
