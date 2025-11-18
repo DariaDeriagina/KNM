@@ -19,80 +19,79 @@ body {
 	color: var(--knm-text);
 	background: #fff;
 }
+
 a {
 	text-decoration: none;
 }
+
 .manrope {
 	font-family: Manrope, Inter, sans-serif;
 }
 
-/*MARK: Header */
-.topbar {
-	border-bottom: 1px solid #e7ebef;
-	background: #fff;
-}
-.brand-mark {
-	height: 34px;
-}
-.nav-link {
-	font-weight: 600;
-	letter-spacing: 0.02em;
-	color: #111;
-}
-.nav-link:hover {
-	color: var(--knm-primary);
-}
-/* sections linked via #hash won't hide under sticky navbar */
+/* Sections linked via #hash won't hide under sticky navbar */
 [id] {
-	scroll-margin-top: 84px;
-} /* adjust if your navbar height changes */
-
-/* make the navbar logo bigger */
-.brand-mark {
-	height: 44px; /* was 34px */
-	width: auto; /* keep aspect ratio */
-	display: block; /* remove baseline gap */
+	scroll-margin-top: 84px; /* adjust if navbar height changes */
 }
 
-/*sticky nav*/
+/* ================================
+   MARK: HEADER / NAVBAR
+   ================================ */
+
 .topbar {
 	border-bottom: 1px solid #e7ebef;
 	background: #fff;
 	z-index: 1030; /* stay above content */
 }
+
 .nav-shadow {
 	box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
 }
 
-/* even bigger on desktop */
+/* Logo */
+.brand-mark {
+	height: 44px; /* bigger by default */
+	width: auto;
+	display: block; /* remove baseline gap */
+}
+
 @media (min-width: 992px) {
 	.brand-mark {
-		height: 52px;
+		height: 52px; /* even bigger on desktop */
 	}
 }
 
-/* optional: tighten navbar vertical padding so it stays neat */
+/* Navbar padding */
 .navbar {
 	padding-top: 0.5rem;
 	padding-bottom: 0.5rem;
 }
 
-/*MARK: Hero */
-.section-hero {
-	padding: 72px 0 56px;
-}
-/* MARK: Hero title — black + stacked words */
-.hero-title {
-	font: 700 clamp(32px, 5.4vw, 80px) / 1.05 Manrope, sans-serif;
-	color: #000000; /* client wants black */
-	margin-bottom: 8px;
-}
-/* MARK: Hero title spacing (client request) */
-.hero-title-stacked {
-	margin-bottom: clamp(16px, 4vw, 36px);
+/* Nav links */
+.nav-link {
+	font-weight: 600;
+	letter-spacing: 0.02em;
+	color: #111;
 }
 
-/* Each word on its own line */
+.nav-link:hover {
+	color: var(--knm-primary);
+}
+
+/* ============================
+   MARK: HERO (desktop + mobile)
+   ============================ */
+
+.section-hero {
+	padding: 80px 0 64px;
+}
+
+/* Title / copy */
+.hero-title {
+	font: 800 clamp(30px, 5.2vw, 72px) / 1.05 Manrope, sans-serif;
+	color: #000;
+	margin-bottom: 10px;
+}
+
 .hero-title-stacked span {
 	display: block;
 }
@@ -101,44 +100,13 @@ a {
 	color: #4a5560;
 	margin-bottom: 22px;
 }
-/* square buttons + perfectly centered text */
-.btn-cta {
-	border-radius: 0 !important; /* remove rounded corners */
-	display: inline-flex; /* keep flex centering */
-	align-items: center;
-	justify-content: center;
-	text-align: center; /* ensure text is centered */
-}
 
-.btn-primary-knm {
-	border-radius: 0;
-	background: var(--knm-primary);
-	color: #fff;
-	border: 1px solid rgba(0, 0, 0, 0.08);
-}
-.btn-primary-knm:hover {
-	background: #1a1a1a;
-	color: #fff;
-}
-.btn-outline-knm {
-	border-radius: 0;
-	border: 2px solid var(--knm-primary);
-	color: var(--knm-primary);
-	background: #fff;
-	font-weight: 600;
-}
-.btn-outline-knm:hover {
-	background: var(--knm-light);
-}
-.btn-gap > * + * {
-	margin-left: 12px;
-}
-/* Bigger, square, perfectly centered CTAs */
+/* CTA buttons */
 .btn-gap {
 	display: flex;
 	align-items: center;
-	gap: 16px; /* replaces the margin-left hack */
-	flex-wrap: wrap; /* nice on smaller screens */
+	flex-wrap: wrap;
+	gap: 16px;
 }
 
 .btn-cta {
@@ -147,23 +115,23 @@ a {
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	line-height: 1; /* keeps text centered vertically */
-	min-width: 260px; /* makes them feel substantial */
-	height: 60px; /* ↑ height */
-	padding: 0 40px; /* ↑ horizontal padding */
-	font-size: 18px; /* ↑ text size */
-	font-weight: 700; /* bolder label */
-	letter-spacing: 0.6px;
+	line-height: 1;
+	min-width: 260px;
+	height: 60px;
+	padding: 0 40px;
+	font-size: 18px;
+	font-weight: 700;
+	letter-spacing: 0.06em;
 	text-transform: uppercase;
 }
 
-/* Variants keep the square look */
 .btn-primary-knm {
 	border-radius: 0 !important;
 	background: var(--knm-primary);
 	color: #fff;
 	border: 1px solid rgba(0, 0, 0, 0.08);
 }
+
 .btn-primary-knm:hover {
 	background: #1a1a1a;
 	color: #fff;
@@ -174,85 +142,323 @@ a {
 	border: 2px solid var(--knm-primary);
 	color: var(--knm-primary);
 	background: #fff;
-	font-weight: 700; /* match primary weight */
+	font-weight: 700;
 }
+
 .btn-outline-knm:hover {
 	background: var(--knm-light);
 }
 
-/* Mobile/tablet sizing */
+/* Hero layout: image+animation on the right (desktop) */
+.section-hero .col-lg-5 {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+/* Wrapper for image + Lottie */
+.hero-media {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Hero image (single wide PNG) */
+.hero-img {
+	max-width: 560px;
+	width: 100%;
+	height: auto;
+	aspect-ratio: 16 / 9;
+	border-radius: 14px;
+	box-shadow: 0 14px 40px rgba(0, 0, 0, 0.16);
+	object-fit: cover;
+	object-position: center;
+}
+
+/* Lottie overlay bubble */
+.hero-lottie {
+	position: absolute;
+	bottom: 8%;
+	right: 8%;
+	width: 260px;
+	height: 260px;
+}
+
+/* HERO — tablet & mobile */
 @media (max-width: 991.98px) {
+	.section-hero {
+		padding: 64px 0 48px;
+	}
+
+	.section-hero .col-lg-5 {
+		justify-content: center;
+		margin-top: 20px;
+	}
+
+	.btn-gap {
+		justify-content: center;
+		width: 100%;
+	}
+}
+
+/* PHONE HERO — compact card + stacked layout */
+@media (max-width: 767.98px) {
+	.section-hero {
+		padding: 52px 0 40px;
+	}
+
+	.section-hero .container {
+		max-width: 420px;
+	}
+
+	.section-hero .col-lg-7 {
+		text-align: left;
+	}
+
+	.hero-title {
+		font-size: 28px;
+		text-align: left;
+	}
+
+	.hero-sub {
+		font-size: 15px;
+		margin-bottom: 18px;
+	}
+
 	.btn-cta {
 		width: 100%;
-		max-width: 360px; /* keeps them tidy on small screens */
-		height: 56px;
+		max-width: 340px;
+		height: 54px;
 		font-size: 16px;
 		padding: 0 28px;
 	}
-}
 
-.hero-img {
-	width: 80%;
-	height: auto;
-	border-radius: 6px;
-	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-}
-/* ===== Mobile/tablet centering ===== */
-@media (max-width: 991.98px) {
-	/* center the hero text block */
-	.section-hero .col-lg-7 {
-		text-align: center;
-	}
-
-	/* center the buttons row */
-	.btn-gap {
-		justify-content: center; /* puts both buttons in the middle */
-		width: 100%;
-	}
-
-	/* make image full-width and centered */
 	.hero-img {
-		display: block;
-		margin: 16px auto 0; /* centers horizontally */
 		width: 100%;
-		max-width: 420px; /* keeps it elegant on small screens */
+		max-width: 340px;
+		height: 230px;
+		object-fit: cover;
+		object-position: center 20%;
+		border-radius: 16px;
+		box-shadow: 0 18px 44px rgba(6, 20, 35, 0.28);
+	}
+
+	/* Lottie goes under the image on phones */
+	.hero-media {
+		flex-direction: column;
+	}
+
+	.hero-lottie {
+		position: static;
+		margin-top: 16px;
+		width: 200px;
+		height: 200px;
 	}
 }
 
-/* ================================
-   MARK: Hero image — smaller on mobile
-   ================================ */
-@media (max-width: 768px) {
-	.hero-img {
-		max-width: 340px; /* was 420px */
-		width: 85%; /* keep it responsive */
-	}
+/* Extra-tight on very small phones */
+@media (max-width: 480px) {
 	.section-hero {
-		padding: 56px 0 44px; /* a bit tighter so it feels balanced */
+		padding: 46px 0 34px;
 	}
-}
 
-@media (max-width: 576px) {
 	.hero-img {
-		max-width: 300px; /* even smaller on phones */
-		width: 82%;
+		max-width: 300px;
+		height: 210px;
+	}
+}
+/* =========================================
+   HERO — desktop word-by-word reveal
+   ========================================= */
+@media (min-width: 992px) {
+	.hero-title-stacked span {
+		opacity: 0;
+		transform: translateY(18px);
+		display: block;
+	}
+
+	/* When the H1 gets .show from fade-on-scroll */
+	.hero-title-stacked.show span {
+		animation: heroLineIn 0.65s forwards ease-out;
+	}
+
+	.hero-title-stacked.show span:nth-child(1) {
+		animation-delay: 0.1s;
+	}
+
+	.hero-title-stacked.show span:nth-child(2) {
+		animation-delay: 0.25s;
+	}
+
+	.hero-title-stacked.show span:nth-child(3) {
+		animation-delay: 0.4s;
+	}
+
+	.hero-title-stacked.show span:nth-child(4) {
+		animation-delay: 0.55s;
+	}
+
+	@keyframes heroLineIn {
+		from {
+			opacity: 0;
+			transform: translateY(18px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
 	}
 }
 
-/* MOBILE — hero title align right */
-@media (max-width: 576px) {
-	.hero-title-stacked {
+/* =========================================
+   HERO — mobile word-by-word reveal (same as desktop)
+   ========================================= */
+@media (max-width: 767.98px) {
+	.section-hero {
+		padding: 52px 0 40px;
+	}
+
+	.section-hero .container {
+		max-width: 420px;
+	}
+
+	.section-hero .col-lg-7 {
+		text-align: left;
+	}
+
+	.hero-title {
+		font-size: 28px;
+		text-align: left;
+	}
+
+	.hero-sub {
+		font-size: 15px;
+		margin-bottom: 18px;
+	}
+
+	.btn-cta {
+		width: 100%;
+		max-width: 340px;
+		height: 54px;
+		font-size: 16px;
+		padding: 0 28px;
+	}
+
+	/* IMAGE: smaller on mobile */
+	.hero-img {
+		width: 100%;
+		max-width: 280px;
+		height: 190px;
+		object-fit: cover;
+		object-position: center 20%;
+		border-radius: 16px;
+		box-shadow: 0 18px 44px rgba(6, 20, 35, 0.28);
+		margin-top: 10px; /* space under Lottie */
+	}
+
+	/* STACK: Lottie ABOVE image */
+	.hero-media {
+		display: flex;
+		flex-direction: column-reverse; /* put Lottie first, image second */
+		align-items: center;
+	}
+
+	.hero-lottie {
+		position: static;
+		margin: 0 0 8px; /* gap before image */
+		width: 200px;
+		height: 200px;
+	}
+}
+@media (max-width: 767.98px) {
+	.section-hero {
+		padding: 52px 0 40px;
+	}
+
+	.section-hero .container {
+		max-width: 420px;
+	}
+
+	/* Title + text */
+	.hero-title {
+		font-size: 28px;
 		text-align: left;
 		margin-left: 20px;
 	}
+
 	.hero-sub {
-		text-align: center;
+		font-size: 15px;
+		margin-bottom: 18px;
+		margin-left: 20px;
+	}
+
+	.btn-cta {
+		width: 100%;
+		max-width: 340px;
+		height: 54px;
+		font-size: 16px;
+		padding: 0 28px;
+	}
+
+	/* IMAGE: smaller + relative so Lottie can sit on top */
+	.hero-media {
+		position: relative;
+		display: flex;
+		justify-content: center;
+	}
+
+	.hero-img {
+		width: 100%;
+		max-width: 300px;
+		height: 200px;
+		object-fit: cover;
+		object-position: center 20%;
+		border-radius: 16px;
+		box-shadow: 0 18px 44px rgba(6, 20, 35, 0.28);
+	}
+
+	/* LOTTIE: sits ON TOP of the image */
+	.hero-lottie {
+		position: absolute;
+		top: 86px; /* move it upward above the image edge */
+		left: 77%;
+		transform: translateX(-50%);
+		width: 160px;
+		height: 160px;
+		pointer-events: none; /* prevents blocking clicks */
+	}
+}
+
+/* =========================================
+   HERO — improved desktop image crop
+   ========================================= */
+@media (min-width: 992px) {
+	/* Make the image appear zoomed-in without resizing the file */
+	.hero-img {
+		max-width: 660px; /* bigger image */
+		object-fit: cover;
+		object-position: center 20%; /* move crop upward (0% = very top, 50% = center) */
+		transform: scale(1.12); /* slight zoom to show logo better */
+		border-radius: 14px;
+	}
+
+	/* Adjust Lottie position */
+	.hero-lottie {
+		right: -3%;
+		bottom: 12%;
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	.hero-title-stacked span {
+		opacity: 1 !important;
+		transform: none !important;
+		animation: none !important;
 	}
 }
 
 /* ================================
    MARK: SERVICES SECTION (KNM Finance)
-   Equal card size + centered compact lists
    ================================ */
 
 .section-services {
@@ -272,22 +478,22 @@ a {
 	margin: 14px 0 26px;
 }
 
-/* === Layout Grid === */
+/* Layout Grid */
 .section-services .row > [class*="col-"] {
 	display: flex;
 	align-items: stretch;
 	justify-content: center;
 }
 
-/* === Service Card === */
+/* Service Card */
 .svc-card {
 	background: #ffffff;
 	color: #2b333a;
 	border-radius: 12px;
 	padding: 22px 18px;
 	width: 100%;
-	max-width: 290px; /* fixed consistent width */
-	min-height: 420px; /* fixed consistent height */
+	max-width: 290px;
+	min-height: 420px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -301,7 +507,7 @@ a {
 	box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
 }
 
-/* === Image === */
+/* Image */
 .svc-image {
 	width: 150px;
 	height: 150px;
@@ -312,51 +518,52 @@ a {
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
-/* === Title === */
+/* Title */
 .svc-title {
 	font: 700 16px/1.3 Manrope, sans-serif;
 	color: #111;
-	margin: 8px 0 8px; /* tighter space above and below */
+	margin: 8px 0 8px;
 	text-transform: uppercase;
 	letter-spacing: 0.4px;
 }
 
-/* === List === */
+/* List */
 .svc-card ul {
 	list-style: disc;
 	list-style-position: inside;
 	margin: 4px 0 0;
 	padding: 0;
 	text-align: center;
-	flex-grow: 1; /* keeps list vertically centered */
+	flex-grow: 1;
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start; /* top-align inside card for cleaner spacing */
+	justify-content: flex-start;
 }
 
 .svc-card li {
 	font-size: 14.5px;
 	color: #505a63;
-	margin: 3px 0; /* reduced gap between items */
-	line-height: 1.35; /* tighter line height */
+	margin: 3px 0;
+	line-height: 1.35;
 }
 
 .svc-card li::marker {
 	color: var(--knm-primary);
 }
 
-/* === Fade-in Animation === */
+/* Fade-in Animation (generic utility) */
 .fade-on-scroll {
 	opacity: 0;
 	transform: translateY(14px);
 	transition: opacity 0.9s ease, transform 0.9s ease;
 }
+
 .fade-on-scroll.show {
 	opacity: 1;
 	transform: translateY(0);
 }
 
-/* === Responsive Tweaks === */
+/* Responsive */
 @media (max-width: 1200px) {
 	.svc-card {
 		max-width: 260px;
@@ -368,11 +575,13 @@ a {
 	.section-services {
 		padding: 48px 0;
 	}
+
 	.svc-card {
 		max-width: 300px;
 		min-height: 380px;
 		margin: 0 auto;
 	}
+
 	.svc-image {
 		width: 130px;
 		height: 130px;
@@ -385,26 +594,27 @@ a {
 		min-height: 360px;
 		padding: 18px;
 	}
+
 	.svc-image {
 		width: 110px;
 		height: 110px;
 	}
 }
 
-/* === Accessibility: Reduced Motion === */
 @media (prefers-reduced-motion: reduce) {
 	.fade-on-scroll {
 		opacity: 1 !important;
 		transform: none !important;
 		transition: none !important;
 	}
+
 	.svc-card:hover {
 		transform: none;
 	}
 }
 
 /* ================================
-   MARK: ABOUT US (official text version)
+   MARK: ABOUT US
    ================================ */
 
 .section-about {
@@ -413,6 +623,7 @@ a {
 	border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
+/* Heading row */
 .about-head {
 	margin-bottom: 24px;
 }
@@ -438,9 +649,9 @@ a {
 /* Grid layout */
 .about-grid {
 	display: grid;
-	grid-template-columns: 1.1fr 1fr;
+	grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
 	gap: 28px;
-	align-items: center;
+	align-items: stretch;
 }
 
 /* Left image */
@@ -450,11 +661,13 @@ a {
 	overflow: hidden;
 	background: #e0e6ee;
 	box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
+	height: 100%;
 }
+
 .about-media img {
 	display: block;
 	width: 100%;
-	height: auto;
+	height: 100%;
 	object-fit: cover;
 }
 
@@ -463,17 +676,19 @@ a {
 	position: relative;
 	background: #ffffff;
 	border-radius: 12px;
-	padding: 28px 32px;
+	padding: 24px 28px;
 	box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
 	border-left: 6px solid var(--knm-primary);
+	height: 100%;
 }
 
 .about-card p {
 	font-size: 16.5px;
 	color: #1a1a1a;
 	line-height: 1.55;
-	margin: 0 0 14px;
+	margin-top: 40px;
 }
+
 .about-card p:last-child {
 	margin-bottom: 0;
 }
@@ -487,6 +702,7 @@ a {
 	padding: 0;
 	list-style: none;
 }
+
 .about-stats li {
 	background: #f5f7fa;
 	border: 1px solid rgba(0, 0, 0, 0.05);
@@ -494,11 +710,13 @@ a {
 	padding: 14px 12px;
 	text-align: center;
 }
+
 .about-stats strong {
 	display: block;
 	font: 800 22px/1 Manrope, sans-serif;
 	color: #111;
 }
+
 .about-stats span {
 	color: #5b6570;
 	font-size: 13.5px;
@@ -510,6 +728,7 @@ a {
 	transform: translateY(18px);
 	transition: opacity 0.8s ease, transform 0.8s ease;
 }
+
 .reveal-about.show {
 	opacity: 1;
 	transform: none;
@@ -520,59 +739,69 @@ a {
 	.section-about {
 		padding: 54px 0 72px;
 	}
+
 	.about-grid {
 		grid-template-columns: 1fr;
 		gap: 20px;
+		align-items: start;
 	}
+
+	.about-media {
+		height: auto;
+	}
+
+	.about-media img {
+		height: auto;
+	}
+
 	.about-badge {
 		width: 52px;
 		height: 48px;
 	}
 }
+
 @media (max-width: 576px) {
 	.about-card {
 		padding: 22px;
 	}
+
 	.about-card p {
 		font-size: 15.5px;
 		line-height: 1.5;
 	}
+
 	.about-stats {
-		grid-template-columns: 1fr 1fr;
-	}
-}
-/* Mobile: 2 columns; last item spans both = centered row */
-@media (max-width: 576px) {
-	.about-stats {
-		display: grid;
 		grid-template-columns: 1fr 1fr;
 		gap: 12px;
 	}
+
+	/* Last stat full width on mobile */
 	.about-stats li:last-child {
-		grid-column: 1 / -1; /* span both columns */
+		grid-column: 1 / -1;
 	}
 }
 
 /* ================================
-   MARK: RESULTS (matches Services color, improved spacing)
+   MARK: RESULTS
    ================================ */
+
 .section-results {
 	background: var(--knm-primary);
 	color: #fff;
-	padding: 80px 0 90px; /* increased vertical space */
+	padding: 80px 0 90px;
 	border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .section-results .results-lead {
 	color: var(--knm-light);
-	margin-bottom: 26px; /* more room under subtitle */
+	margin-bottom: 26px;
 }
 
 /* Grid */
 .results-grid {
 	display: grid;
 	grid-template-columns: repeat(4, minmax(0, 1fr));
-	gap: 24px; /* was 14px — adds more breathing space between cards */
+	gap: 24px;
 }
 
 /* KPI card */
@@ -580,7 +809,7 @@ a {
 	background: #ffffff;
 	color: #2b333a;
 	border-radius: 14px;
-	padding: 26px 20px; /* more inner spacing */
+	padding: 26px 20px;
 	box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
 	border: 1px solid rgba(0, 0, 0, 0.05);
 	display: flex;
@@ -588,6 +817,7 @@ a {
 	gap: 14px;
 	transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
+
 .kpi-card:hover {
 	transform: translateY(-5px);
 	box-shadow: 0 18px 30px rgba(0, 0, 0, 0.14);
@@ -597,7 +827,7 @@ a {
 .kpi {
 	display: flex;
 	align-items: center;
-	gap: 16px; /* adds space between circle and number */
+	gap: 16px;
 }
 
 .kpi-number {
@@ -605,7 +835,7 @@ a {
 	display: inline-block;
 	font: 800 32px/1 Manrope, sans-serif;
 	color: #111;
-	padding-left: 32px; /* was 16px — gives more room for the circle */
+	padding-left: 32px;
 }
 
 .kpi-number::before {
@@ -636,24 +866,28 @@ a {
 		gap: 20px;
 	}
 }
+
 @media (max-width: 576px) {
 	.results-grid {
 		grid-template-columns: 1fr;
 		gap: 18px;
 	}
+
 	.section-results {
 		padding: 70px 0 80px;
 	}
+
 	.kpi-number {
 		font-size: 28px;
 	}
 }
 
 /* ================================
-   MARK: COMMITMENT (white section)
+   MARK: COMMITMENT
    ================================ */
+
 .section-commitment {
-	background: #ffffff; /* same as main */
+	background: #ffffff;
 	padding: 72px 0 90px;
 	border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
@@ -670,6 +904,7 @@ a {
 	position: relative;
 	padding-left: 18px; /* room for accent bar */
 }
+
 .commit-copy::before {
 	content: "";
 	position: absolute;
@@ -685,13 +920,14 @@ a {
 .commit-kicker {
 	display: inline-block;
 	font: 700 12px/1 Manrope, sans-serif;
-	letter-spacing: 0.16em;
+	letter-spacing: 0.18em;
 	color: var(--knm-primary);
 	background: #eef2f6;
-	padding: 6px 10px;
+	padding: 6px 12px;
 	border-radius: 999px;
 	margin-bottom: 10px;
 	text-transform: uppercase;
+	white-space: nowrap;
 }
 
 .commit-title {
@@ -718,6 +954,7 @@ a {
 	position: relative;
 	isolation: isolate;
 }
+
 .commit-media img {
 	display: block;
 	width: 100%;
@@ -725,7 +962,7 @@ a {
 	object-fit: cover;
 }
 
-/* subtle floating badge (optional, looks nice with your brand) */
+/* Subtle overlay frame */
 .commit-media::after {
 	content: "";
 	position: absolute;
@@ -741,23 +978,27 @@ a {
 	transform: translateY(14px);
 	transition: opacity 0.8s ease, transform 0.8s ease;
 }
+
 .section-commitment .fade-on-scroll.show {
 	opacity: 1;
 	transform: none;
 }
 
-/* Responsive */
+/* Commitment responsive */
 @media (max-width: 992px) {
 	.section-commitment {
 		padding: 56px 0 76px;
 	}
+
 	.commit-grid {
 		grid-template-columns: 1fr;
 		gap: 18px;
 	}
+
 	.commit-copy {
 		padding-left: 14px;
 	}
+
 	.commit-copy::before {
 		height: 36px;
 	}
@@ -769,14 +1010,41 @@ a {
 		line-height: 1.55;
 	}
 }
+
+/* Desktop: make commitment label big & bold */
+@media (min-width: 992px) {
+	.commit-kicker {
+		font-size: 14px;
+		letter-spacing: 0.26em;
+		padding: 10px 22px;
+		border-radius: 999px;
+		box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+		background: #e3e8f2;
+	}
+
+	.commit-copy {
+		padding-left: 22px;
+	}
+
+	.commit-copy::before {
+		top: 0.6rem;
+		height: 56px;
+	}
+
+	.commit-media {
+		max-width: 380px; /* 420–520 also works, pick client preference */
+		margin-left: auto;
+	}
+}
+
 /* ================================
-   MARK: TESTIMONIALS (KNM — full rewrite)
+   MARK: TESTIMONIALS
    ================================ */
 
 .section-testimonials {
-	background: var(--knm-primary); /* same dark tone as Services */
+	background: var(--knm-primary);
 	color: #fff;
-	padding: 80px 0 96px; /* generous breathing room */
+	padding: 80px 0 96px;
 	border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -787,10 +1055,10 @@ a {
 .testi-grid {
 	display: grid;
 	grid-template-columns: repeat(3, minmax(0, 1fr));
-	gap: 24px; /* space between cards */
+	gap: 24px;
 }
 
-/* ===== Testimonial Card ===== */
+/* Testimonial Card */
 .quote-card {
 	background: #ffffff;
 	color: #2b333a;
@@ -811,14 +1079,14 @@ a {
 	box-shadow: 0 18px 32px rgba(0, 0, 0, 0.16);
 }
 
-/* Decorative quote (simple + cross-browser) */
+/* Decorative quote */
 .quote-card blockquote {
 	margin: 0;
 	font-size: 16.2px;
 	line-height: 1.55;
 	color: #1a1a1a;
 	position: relative;
-	padding-left: 36px; /* room for the opening quote */
+	padding-left: 36px;
 }
 
 .quote-card blockquote::before {
@@ -840,7 +1108,6 @@ a {
 	margin-top: 2px;
 }
 
-/* Optional subtle divider above figcaption */
 .quote-card figcaption::before {
 	content: "";
 	display: block;
@@ -849,18 +1116,19 @@ a {
 	margin: 6px 0 10px;
 }
 
-/* ===== Fade-on-scroll integration (reuse your JS) ===== */
+/* Fade-on-scroll integration */
 .section-testimonials .fade-on-scroll {
 	opacity: 0;
 	transform: translateY(14px);
 	transition: opacity 0.8s ease, transform 0.8s ease;
 }
+
 .section-testimonials .fade-on-scroll.show {
 	opacity: 1;
 	transform: none;
 }
 
-/* ===== Responsive ===== */
+/* Responsive */
 @media (max-width: 1200px) {
 	.testi-grid {
 		grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -872,9 +1140,11 @@ a {
 	.section-testimonials {
 		padding: 70px 0 84px;
 	}
+
 	.quote-card {
 		padding: 22px 18px;
 	}
+
 	.quote-card blockquote {
 		font-size: 15.8px;
 	}
@@ -882,23 +1152,25 @@ a {
 
 @media (max-width: 576px) {
 	.testi-grid {
-		grid-template-columns: 1fr; /* single column on phones */
+		grid-template-columns: 1fr;
 		gap: 16px;
 	}
+
 	.quote-card blockquote {
 		padding-left: 32px;
 	}
+
 	.quote-card blockquote::before {
 		top: -4px;
 		font-size: 46px;
 	}
 }
 
-/* ===== Reduced Motion (accessibility) ===== */
 @media (prefers-reduced-motion: reduce) {
 	.quote-card:hover {
 		transform: none;
 	}
+
 	.section-testimonials .fade-on-scroll {
 		opacity: 1 !important;
 		transform: none !important;
@@ -907,7 +1179,7 @@ a {
 }
 
 /* ================================
-   MARK: STICKY CONTACT ICONS — Final Clean
+   MARK: STICKY CONTACT ICONS (Mobile)
    ================================ */
 
 .contact-dock {
@@ -921,8 +1193,6 @@ a {
 	align-items: center;
 	gap: 200px;
 	z-index: 1040;
-
-	/* Frosted glass + soft divider */
 	background: rgba(255, 255, 255, 0.85);
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
@@ -943,23 +1213,27 @@ a {
 	animation: dockPulse 2.4s ease-in-out infinite;
 }
 
-/* ================================
-   MARK: Contact Dock — Premium Variant
-   ================================ */
-
 /* Email button — premium blue */
 .contact-dock a[aria-label="Email"] {
-	background-color: #1e3a8a; /* premium deep blue */
+	background-color: #1e3a8a;
 }
 
 /* Phone button — premium green */
 .contact-dock a[aria-label="Phone"] {
-	background-color: #0f6b39; /* premium financial green */
+	background-color: #0f6b39;
 }
 
 /* Icon stays white */
-.contact-dock a .dock-icon {
-	filter: brightness(0) invert(1); /* ensures pure white */
+.dock-icon {
+	width: 30px;
+	height: 30px;
+	object-fit: contain;
+	filter: brightness(0) invert(1);
+	transition: transform 0.3s ease;
+}
+
+.contact-dock a:hover .dock-icon {
+	transform: scale(1.15);
 }
 
 /* Hover */
@@ -968,19 +1242,7 @@ a {
 	filter: brightness(1.07);
 }
 
-/* Icons */
-.dock-icon {
-	width: 30px;
-	height: 30px;
-	object-fit: contain;
-	filter: brightness(0) invert(1);
-	transition: transform 0.3s ease;
-}
-.contact-dock a:hover .dock-icon {
-	transform: scale(1.15);
-}
-
-/* Pulse keyframes (defined ONCE) */
+/* Pulse keyframes */
 @keyframes dockPulse {
 	0%,
 	100% {
@@ -1000,27 +1262,39 @@ a {
 		gap: 160px;
 		backdrop-filter: blur(8px);
 	}
+
 	.contact-dock a {
 		width: 54px;
 		height: 54px;
 	}
+
 	.dock-icon {
 		width: 26px;
 		height: 26px;
 	}
 }
+
 @media (max-width: 480px) {
 	.contact-dock {
 		height: 60px;
 		gap: 140px;
 	}
+
 	.contact-dock a {
 		width: 50px;
 		height: 50px;
 	}
+
 	.dock-icon {
 		width: 24px;
 		height: 24px;
+	}
+}
+
+/* Only mobile */
+@media (min-width: 992px) {
+	.contact-dock {
+		display: none !important;
 	}
 }
 
@@ -1031,22 +1305,17 @@ a {
 	}
 }
 
-/* MARK: Contact dock — only mobile */
-@media (min-width: 992px) {
-	.contact-dock {
-		display: none !important;
-	}
-}
-
 /* ================================
-   CONTACT SECTION (copy-only padding)
+   MARK: CONTACT SECTION
    ================================ */
+
 .section-contact {
 	background: #fff;
 	color: var(--knm-text);
 	padding: 64px 0 120px; /* extra bottom: clear of dock */
 	border-top: 1px solid rgba(0, 0, 0, 0.06);
 }
+
 .contact-kicker {
 	display: inline-block;
 	font: 700 12px/1 Manrope, sans-serif;
@@ -1058,11 +1327,13 @@ a {
 	text-transform: uppercase;
 	margin-bottom: 10px;
 }
+
 .contact-sub {
 	color: #5b6570;
 	max-width: 62ch;
 	margin: 6px auto 0;
 }
+
 @media (max-width: 576px) {
 	.section-contact {
 		padding-bottom: 110px;
@@ -1070,8 +1341,9 @@ a {
 }
 
 /* ================================
-   FLOATING DOCK HINT (arrow + chip)
+   FLOATING DOCK HINT
    ================================ */
+
 .dock-hint {
 	position: fixed;
 	left: 50%;
@@ -1091,15 +1363,18 @@ a {
 	pointer-events: none;
 	transition: opacity 0.35s ease, transform 0.35s ease;
 }
+
 .dock-hint .hint-text {
 	font: 700 12.5px/1 Manrope, sans-serif;
 	letter-spacing: 0.04em;
 	opacity: 0.9;
 }
+
 .dock-hint .hint-arrow {
 	opacity: 0.95;
 	animation: hintBounce 1.2s ease-in-out infinite;
 }
+
 .dock-hint.is-visible {
 	opacity: 1;
 	transform: translate(-50%, -4px);
@@ -1121,6 +1396,7 @@ a {
 		bottom: 86px;
 	}
 }
+
 @media (prefers-reduced-motion: reduce) {
 	.dock-hint .hint-arrow {
 		animation: none;
@@ -1128,17 +1404,47 @@ a {
 }
 
 /* ================================
-   MARK: FOOTER — KNM Finance
+   MARK: FOOTER
    ================================ */
 
 .section-footer {
-	background: #f8fafc; /* light neutral tone (same as contact dock) */
+	background: #f8fafc;
 	color: var(--knm-text);
-	padding: 48px 0 56px;
+	padding: 40px 0 52px;
 	border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.section-footer .container {
+	max-width: 960px;
+	margin: 0 auto;
 	text-align: center;
 }
 
+/* Logo / brand */
+.footer-brand {
+	margin-bottom: 16px;
+}
+
+.footer-logo-link {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.footer-logo {
+	height: 42px;
+	width: auto;
+	display: block;
+	filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.12));
+}
+
+@media (min-width: 992px) {
+	.footer-logo {
+		height: 50px;
+	}
+}
+
+/* Divider */
 .footer-divider {
 	width: 80px;
 	height: 2px;
@@ -1148,16 +1454,55 @@ a {
 	border-radius: 2px;
 }
 
+/* Nav */
+.footer-nav {
+	margin-bottom: 14px;
+}
+
+.footer-nav-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 18px 32px;
+}
+
+.footer-nav-link {
+	font-size: 13.5px;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: #4b5563;
+	text-decoration: none;
+	transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+.footer-nav-link:hover {
+	color: var(--knm-primary);
+	opacity: 0.9;
+}
+
+/* Bottom text */
+.footer-bottom {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 4px;
+}
+
 .footer-text {
 	font-size: 15px;
-	margin-bottom: 8px;
 	color: #555d66;
+	margin: 0;
 }
 
 .footer-credit {
 	font-size: 14px;
 	color: #7a858f;
 	letter-spacing: 0.3px;
+	margin: 0;
 }
 
 .footer-credit a {
@@ -1171,56 +1516,52 @@ a {
 	color: #1a1a1a;
 }
 
-/* Subtle fade-in reuse */
+/* Footer fade-in */
 .section-footer .fade-on-scroll {
 	opacity: 0;
 	transform: translateY(10px);
 	transition: opacity 0.9s ease, transform 0.9s ease;
 }
+
 .section-footer .fade-on-scroll.show {
 	opacity: 1;
 	transform: none;
 }
 
-/* Small screen spacing */
+/* Footer responsive */
 @media (max-width: 576px) {
 	.section-footer {
-		padding: 40px 0 50px;
+		padding: 36px 0 46px;
+		margin-bottom: 34px; /* extra margin at the bottom for mobile */
 	}
+
+	.footer-nav-list {
+		flex-direction: column;
+		align-items: center;
+		gap: 10px 18px;
+	}
+
+	.footer-nav-link {
+		font-size: 12.5px;
+	}
+
 	.footer-text,
 	.footer-credit {
 		font-size: 14px;
+		text-align: center;
 	}
-}
-/* === Hero layout fix (image right on desktop, centered on mobile) === */
-.section-hero .col-lg-5 {
-	display: flex;
-	justify-content: flex-end; /* push picture to the right on lg+ */
-	align-items: center;
 }
 
-/* Replace older .hero-img sizing with this more robust set */
-.hero-img {
-	max-width: 560px; /* nice cap on large screens */
-	width: 100%; /* responsive */
-	height: auto; /* keep aspect ratio */
-	aspect-ratio: 2 / 3; /* 960 x 1440; helps prevent CLS */
-	border-radius: 6px;
-	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+@media (min-width: 768px) {
+	.footer-bottom {
+		flex-direction: row;
+		justify-content: center;
+		gap: 18px;
+	}
 }
 
-/* Mobile/tablet: center the image column and the image */
-@media (max-width: 991.98px) {
-	.section-hero .col-lg-5 {
-		justify-content: center; /* center picture on small screens */
-	}
-	.section-hero .col-lg-7 {
-		text-align: center; /* keep text centered (you already had this) */
-	}
-}
 /* ===========================
-   DESKTOP CONTACT ICONS IN CONTACT SECTION
-   Premium Style + Pulsation
+   DESKTOP CONTACT ICONS (in Contact Section)
    =========================== */
 
 .desktop-contact-icons {
@@ -1249,19 +1590,23 @@ a {
 	height: 40px;
 }
 
+/* Colors for email / phone */
 .dc-icon.email {
-	background-color: #1e3a8a; /* premium blue */
-}
-.dc-icon.phone {
-	background-color: #0f6b39; /* premium green */
+	background-color: #1e3a8a;
 }
 
+.dc-icon.phone {
+	background-color: #0f6b39;
+}
+
+/* Hover state */
 .dc-icon:hover {
 	transform: translateY(-6px) scale(1.05);
 	box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
 	animation-play-state: paused;
 }
 
+/* Pulse */
 @keyframes dcPulse {
 	0%,
 	100% {
@@ -1281,7 +1626,7 @@ a {
 	}
 }
 
-/* Desktop — hide sticky dock */
+/* Desktop — hide sticky dock (safety duplicate) */
 @media (min-width: 992px) {
 	.contact-dock {
 		display: none !important;

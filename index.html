@@ -213,49 +213,28 @@
 						</div>
 					</div>
 
-					<!-- Right image -->
-					<div class="col-lg-5 fade-on-scroll text-center text-lg-end">
-						<picture>
-							<!-- Mobile: dedicated PNG art direction -->
-							<source
-								srcset="/assets/main-mobile.png"
-								media="(max-width: 767.98px)"
-								type="image/png"
-							/>
+					<!-- Right visual: single hero image + Lottie -->
+<div class="col-lg-5 fade-on-scroll text-center text-lg-end">
+	<div class="hero-media">
+		<img
+			src="/assets/MainImageRight.png"
+			alt="KNM Finance logo on office wall"
+			width="2048"
+			height="967"
+			class="hero-img"
+			decoding="async"
+		/>
 
-							<!-- Tablet / Desktop: AVIF -->
-							<source
-								type="image/avif"
-								srcset="
-									/assets/mainimageright-640.avif   640w,
-									/assets/mainimageright-960.avif   960w,
-									/assets/mainimageright-1280.avif 1280w
-								"
-								sizes="(max-width: 991px) 90vw, 40vw"
-							/>
+		<dotlottie-wc
+			class="hero-lottie"
+			src="https://lottie.host/96b14365-67ae-40f2-afc1-d3f7b695f8c8/cgvEGOO9ym.lottie"
+			autoplay
+			loop
+		></dotlottie-wc>
+	</div>
+</div>
 
-							<!-- Tablet / Desktop: WebP -->
-							<source
-								type="image/webp"
-								srcset="
-									/assets/mainimageright-640.webp   640w,
-									/assets/mainimageright-960.webp   960w,
-									/assets/mainimageright-1280.webp 1280w
-								"
-								sizes="(max-width: 991px) 90vw, 40vw"
-							/>
 
-							<!-- Fallback image (desktop default) -->
-							<img
-								src="/assets/mainimageright-960.webp"
-								alt="Advisor working in KNM office"
-								width="960"
-								height="1440"
-								class="hero-img"
-								decoding="async"
-								fetchpriority="high"
-							/>
-						</picture>
 					</div>
 				</div>
 			</div>
@@ -635,20 +614,50 @@
 				</div>
 			</div>
 		</section>
-
-		<!-- ================= MARK: FOOTER ================= -->
+		<!--MARK: Footer-->
 		<footer id="footer" class="section-footer">
-			<div class="container text-center">
+			<div class="container">
+				<div class="footer-brand">
+					<a href="#main" class="footer-logo-link">
+						<img
+							src="/assets/KNM_Logo_footer.png"
+							alt="KNM Finance logo"
+							class="footer-logo"
+							width="552"
+							height="234"
+							loading="lazy"
+							decoding="async"
+						/>
+					</a>
+				</div>
+
 				<div class="footer-divider"></div>
-				<p class="footer-text">
-					© <span id="year"></span> KNM Finance. All Rights Reserved.
-				</p>
-				<p class="footer-credit">
-					Designed &amp; Developed by
-					<a href="https://dash-dev.net/" target="_blank" rel="noopener"
-						>#dashDev</a
-					>
-				</p>
+
+				<nav class="footer-nav" aria-label="Footer navigation">
+					<ul class="footer-nav-list">
+						<li><a href="#main" class="footer-nav-link">Main</a></li>
+						<li><a href="#services" class="footer-nav-link">Services</a></li>
+						<li><a href="#about" class="footer-nav-link">About Us</a></li>
+						<li>
+							<a href="#testimonials" class="footer-nav-link"
+								>What Clients Say</a
+							>
+						</li>
+						<li><a href="#contact" class="footer-nav-link">Contact</a></li>
+					</ul>
+				</nav>
+
+				<div class="footer-bottom">
+					<p class="footer-text">
+						© <span id="year"></span> KNM Finance. All Rights Reserved.
+					</p>
+					<p class="footer-credit">
+						Designed &amp; Developed by
+						<a href="https://dash-dev.net/" target="_blank" rel="noopener"
+							>#dashDev</a
+						>
+					</p>
+				</div>
 			</div>
 		</footer>
 
@@ -663,5 +672,11 @@
 		<script src="/script.min.js" defer></script>
 
 		<script src="/script.js"></script>
+		<!-- Lottie web component -->
+		<script
+			src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.5/dist/dotlottie-wc.js"
+			type="module"
+			defer
+		></script>
 	</body>
 </html>
