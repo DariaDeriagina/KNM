@@ -1456,9 +1456,9 @@ a {
 /* Bottom text */
 .footer-bottom {
 	display: flex;
-	flex-direction: column;
+	flex-direction: column !important;
 	align-items: center;
-	gap: 4px;
+	gap: 4px !important;
 }
 
 .footer-text {
