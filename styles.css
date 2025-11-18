@@ -81,11 +81,22 @@ a {
 .section-hero {
 	padding: 72px 0 56px;
 }
+/* MARK: Hero title — black + stacked words */
 .hero-title {
 	font: 700 clamp(32px, 5.4vw, 80px) / 1.05 Manrope, sans-serif;
-	color: var(--knm-primary);
+	color: #000000; /* client wants black */
 	margin-bottom: 8px;
 }
+/* MARK: Hero title spacing (client request) */
+.hero-title-stacked {
+	margin-bottom: clamp(16px, 4vw, 36px);
+}
+
+/* Each word on its own line */
+.hero-title-stacked span {
+	display: block;
+}
+
 .hero-sub {
 	color: #4a5560;
 	margin-bottom: 22px;
